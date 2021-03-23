@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormCrearProducto test should match snapshot 1`] = `
+<div>
+  <form>
+    <input
+      class="sc-AxirZ dRaqDY"
+      name="slot"
+      placeholder="Posicion donde va"
+      value=""
+    />
+    <select
+      class="sc-AxiKw jDersQ"
+      name="day"
+      placeholder="Dia de entrada"
+    >
+      <option>
+        Lunes
+      </option>
+      <option>
+        Martes
+      </option>
+      <option>
+        Miercoles
+      </option>
+      <option>
+        Jueves
+      </option>
+      <option>
+        Viernes
+      </option>
+      <option>
+        Sabado
+      </option>
+      <option>
+        Domingo
+      </option>
+    </select>
+    <input
+      class="sc-AxirZ dRaqDY"
+      name="responsable"
+      placeholder="Nombre de el responsable"
+      value=""
+    />
+    <button
+      class="sc-AxjAm cRDllq"
+      type="submit"
+    >
+      Registrar
+    </button>
+  </form>
+</div>
+`;
