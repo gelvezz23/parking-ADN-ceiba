@@ -1,45 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormCrearProducto test should match snapshot 1`] = `
+exports[`FormCrearVehicles test should match snapshot 1`] = `
 <div>
   <form>
+    <h2>
+      Form test
+    </h2>
     <input
-      class="sc-AxirZ dRaqDY"
+      class="sc-AxiKw jDersQ"
       name="slot"
       placeholder="Posicion donde va"
       value=""
     />
-    <select
+    <input
       class="sc-AxiKw jDersQ"
       name="day"
-      placeholder="Dia de entrada"
+      placeholder="dia de la semana"
+      value="Jueves"
+    />
+    <input
+      class="sc-AxiKw jDersQ"
+      name="responsable"
+      placeholder="Nombre de el responsable"
+      value=""
+    />
+    <select
+      class="sc-AxhCb bvOEQw"
+      name="type"
+      placeholder="Tipo"
     >
       <option>
-        Lunes
+        Seleccione
       </option>
-      <option>
-        Martes
+      <option
+        value="Moto"
+      >
+        Moto
       </option>
-      <option>
-        Miercoles
+      <option
+        value="Carro"
+      >
+        Carro
       </option>
-      <option>
-        Jueves
-      </option>
-      <option>
-        Viernes
-      </option>
-      <option>
-        Sabado
-      </option>
-      <option>
-        Domingo
+      <option
+        value="Weight"
+      >
+        Vehiculo pesado
       </option>
     </select>
     <input
-      class="sc-AxirZ dRaqDY"
-      name="responsable"
-      placeholder="Nombre de el responsable"
+      class="sc-AxiKw jDersQ"
+      name="idResponsable"
+      placeholder="Identificacion del responsable"
+      value=""
+    />
+    <input
+      class="sc-AxiKw jDersQ"
+      name="licensePlate"
+      placeholder="Placa del vehiculo"
       value=""
     />
     <button

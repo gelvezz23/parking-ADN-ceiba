@@ -7,25 +7,25 @@ exports[`FormCrearProducto test should match snapshot 1`] = `
       Form test
     </h2>
     <input
-      class="sc-AxirZ eAukyj"
+      class="sc-AxiKw jDersQ"
       name="title"
       placeholder="Title"
       value=""
     />
     <input
-      class="sc-AxirZ eAukyj"
+      class="sc-AxiKw jDersQ"
       name="slug"
       placeholder="Slug"
       value=""
     />
     <input
-      class="sc-AxirZ eAukyj"
+      class="sc-AxiKw jDersQ"
       name="body"
       placeholder="Body"
       value=""
     />
     <button
-      class="sc-AxjAm kgxTKy"
+      class="sc-AxjAm cRDllq"
       type="submit"
     >
       Registrar

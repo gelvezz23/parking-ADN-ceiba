@@ -1,3 +1,5 @@
+import { ADD_CLIENTS, LIST_CLIENTS } from '../clients/typesActions';
+import { Clients } from 'app/feature/Clients/models/Clients';
 import { Vehicle } from './../../../../feature/vehicles/models/Vehicle';
 
 export const LIST_VEHICLES = 'LIST_VEHICLES';
@@ -9,9 +11,19 @@ interface ActionListVehicle {
   payload: Vehicle[];
 }
 
+interface ActionListClients {
+  type: typeof LIST_CLIENTS;
+  payload: Clients[];
+}
+
 interface ActionAddVehicle {
   type: typeof ADD_VEHICLE;
   payload: Vehicle;
+}
+
+interface ActionAddClients {
+  type: typeof ADD_CLIENTS;
+  payload: Clients;
 }
 
 interface ActionRemoveVehicle {
@@ -22,4 +34,6 @@ interface ActionRemoveVehicle {
 export type TypeActionsVehicle =
   | ActionListVehicle
   | ActionAddVehicle
+  | ActionAddClients
+  | ActionListClients
   | ActionRemoveVehicle;

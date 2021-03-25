@@ -4,7 +4,7 @@ import { SinonStub, stub } from 'sinon';
 import { FormCreateVehicle } from './index';
 import { setTextEvent } from './../../../../shared/utils/test';
 
-describe('FormCrearProducto test', () => {
+describe('FormCrearVehicles test', () => {
   let componentWrapper: RenderResult;
   let componentProps: React.ComponentProps<typeof FormCreateVehicle> & {
     onSubmit: SinonStub;
@@ -14,6 +14,7 @@ describe('FormCrearProducto test', () => {
     componentProps = {
       formTitle: 'Form test',
       onSubmit: stub(),
+      addClients: stub(),
     };
     componentWrapper = render(<FormCreateVehicle {...componentProps} />);
   });
@@ -30,22 +31,21 @@ describe('FormCrearProducto test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(3);
+    expect(spans.length).toBe(5);
     expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
-    expect(spans[1].textContent).toBe('Seleccione el dia');
-    expect(spans[2].textContent).toBe(
+    expect(spans[1].textContent).toBe(
       'Debe ir el nombre de el dueño de el vehiculo'
     );
-    expect(spans[3].textContent).toBe(
+    expect(spans[2].textContent).toBe(
       'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
     );
-    expect(spans[4].textContent).toBe('Identificacion de el responsable');
-    expect(spans[5].textContent).toBe(
+    expect(spans[3].textContent).toBe('Identificacion de el responsable');
+    expect(spans[4].textContent).toBe(
       'Debe ir placa de el vehiculo a registrar'
     );
   });
 
-  it('should fail on submit two fields missing', async () => {
+  it('should fail on submit four fields missing', async () => {
     const elem = componentWrapper.container;
     const responsable = elem.querySelector('input[name="responsable"]');
     const submitButton = elem.querySelector('button[type="submit"]');
@@ -59,49 +59,84 @@ describe('FormCrearProducto test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(2);
-    expect(spans[0].textContent).toBe('El campo slug es requerido.');
-    expect(spans[1].textContent).toBe('El campo body es requerido.');
+    expect(spans.length).toBe(4);
+    expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
+    expect(spans[1].textContent).toBe(
+      'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
+    );
   });
 
-  it('should fail on submit two fields missing', async () => {
+  it('should fail on submit four fields missing', async () => {
     const elem = componentWrapper.container;
 
-    const title = elem.querySelector('input[name="title"]');
-    const slug = elem.querySelector('input[name="slug"]');
+    const slot = elem.querySelector('input[name="slot"]');
+    const day = elem.querySelector('input[name="day"]');
     const submitButton = elem.querySelector('button[type="submit"]');
 
     await wait(() => {
-      title && fireEvent.change(title, setTextEvent('title', 'Lorem'));
+      slot && fireEvent.change(slot, setTextEvent('slot', 'M1'));
     });
     await wait(() => {
-      slug && fireEvent.change(slug, setTextEvent('slug', 'Ipsum'));
+      day && fireEvent.change(day, setTextEvent('day', 'Lunes'));
     });
 
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(1);
-    expect(spans[0].textContent).toBe('El campo body es requerido.');
+    expect(spans.length).toBe(4);
+    expect(spans[0].textContent).toBe(
+      'Debe ir el nombre de el dueño de el vehiculo'
+    );
+    expect(spans[1].textContent).toBe(
+      'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
+    );
+    expect(spans[2].textContent).toBe('Identificacion de el responsable');
+    expect(spans[3].textContent).toBe(
+      'Debe ir placa de el vehiculo a registrar'
+    );
   });
 
   it('should submit', async () => {
     const elem = componentWrapper.container;
 
-    const title = elem.querySelector('input[name="title"]');
-    const slug = elem.querySelector('input[name="slug"]');
-    const body = elem.querySelector('input[name="body"]');
+    const slot = elem.querySelector('input[name="slot"]');
+    const day = elem.querySelector('input[name="day"]');
+    const responsable = elem.querySelector('input[name="responsable"]');
+    const type = elem.querySelector('select[name=type]');
+    const idResponsable = elem.querySelector('input[name=idResponsable]');
+    const licensePlate = elem.querySelector('input[name=licensePlate]');
+
     const submitButton = elem.querySelector('button[type="submit"]');
+    await wait(() => {
+      slot && fireEvent.change(slot, setTextEvent('slot', 'slot'));
+    });
+    await wait(() => {
+      day && fireEvent.change(day, setTextEvent('day', 'day'));
+    });
+    await wait(() => {
+      responsable &&
+        fireEvent.change(
+          responsable,
+          setTextEvent('responsable', 'responsable')
+        );
+    });
 
     await wait(() => {
-      title && fireEvent.change(title, setTextEvent('title', 'Lorem'));
+      type && fireEvent.change(type, { target: { value: 'Moto' } });
     });
+
     await wait(() => {
-      slug && fireEvent.change(slug, setTextEvent('slug', 'Ipsum'));
+      idResponsable &&
+        fireEvent.change(idResponsable, setTextEvent('idResponsable', '1090'));
     });
+
     await wait(() => {
-      body && fireEvent.change(body, setTextEvent('body', 'Dolor'));
+      licensePlate &&
+        fireEvent.change(
+          licensePlate,
+          setTextEvent('licensePlate', 'licensePlate')
+        );
     });
 
     await wait(() => {
@@ -110,8 +145,11 @@ describe('FormCrearProducto test', () => {
 
     const formSubmitted = componentProps.onSubmit.firstCall.args[0];
 
-    expect(formSubmitted.title).toBe('Lorem');
-    expect(formSubmitted.slug).toBe('Ipsum');
-    expect(formSubmitted.body).toBe('Dolor');
+    expect(formSubmitted.slot).toBe('slot');
+    expect(formSubmitted.day).toBe('Jueves');
+    expect(formSubmitted.responsable).toBe('responsable');
+    expect(formSubmitted.type).toBe('Moto');
+    expect(formSubmitted.idResponsable).toBe('1090');
+    expect(formSubmitted.licensePlate).toBe('licensePlate');
   });
 });

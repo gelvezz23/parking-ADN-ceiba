@@ -5,7 +5,7 @@ import Modal from './../../../../shared/components/Modal';
 import { Vehicle } from '../../models/Vehicle';
 
 interface BtnRemoveVehicleProps {
-  onClickMarkOut: (vehicle: Vehicle) => any;
+  onClickMarkOut: (vehicle: Vehicle) => void;
   vehicle: Vehicle;
 }
 
@@ -20,7 +20,6 @@ export const BtnRemoveVehicle: React.FC<BtnRemoveVehicleProps> = ({
 
   const CloseModal = () => {
     setIsOpen(false);
-    //handleEliminar
   };
 
   const handleEliminar = () => onClickMarkOut(vehicle);

@@ -8,7 +8,7 @@
     width: 300px;
   }
 
-  width: 500px;
+  width: 400px;
   background: white;
   border: 1px solid #ccc;
   transition: 1.1s ease-out;
@@ -39,8 +39,7 @@
     offset-path: none;
   }
   h2 {
-    border-bottom: 1px solid #ccc;
-    padding: 1rem;
+    padding: 10px;
     margin: 0;
   }
   .content {
@@ -54,8 +53,8 @@
     padding: 10px;
     button {
       margin: 10px;
-      width: 120px;
-      margin-top: -25px;
+      width: 115px;
+      margin-top: -20px;
     }
 
     @media (min-width: 600px) {

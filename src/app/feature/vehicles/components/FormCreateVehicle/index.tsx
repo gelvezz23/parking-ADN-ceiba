@@ -3,18 +3,18 @@ import * as React from 'react';
 import * as Yup from 'yup';
 
 import { Button } from '../../../../shared/components/Button';
+import { Clients } from './../../../Clients/models/Clients';
 
+import { Days } from './../../../../shared/components/Days';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from '../../../../shared/components/Input';
 import { Select } from '../../../../shared/components/Select';
 import { SpanError } from './styles';
 import { Vehicle } from '../../models/Vehicle';
-import axios from 'axios';
 import { useFormik } from 'formik';
 
 interface FormValues {
   slot: string;
-  day: string;
   responsable: string;
   type: string;
   idResponsable: string;
@@ -23,6 +23,7 @@ interface FormValues {
 
 interface FormCreateVehicleProp {
   onSubmit: (payload: Vehicle) => any;
+  addClients: (payload: Clients) => any;
   disabled?: boolean;
   formTitle: string;
   initialValues?: FormValues;
@@ -30,7 +31,6 @@ interface FormCreateVehicleProp {
 
 const validationSchema = Yup.object().shape<FormValues>({
   slot: Yup.string().required('Aqui debe ir la posicion de el carro'),
-  day: Yup.string().required('Seleccione el dia'),
   responsable: Yup.string().required(
     'Debe ir el nombre de el dueño de el vehiculo'
   ),
@@ -45,6 +45,7 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   onSubmit,
+  addClients,
   disabled,
   formTitle,
   initialValues = {
@@ -56,25 +57,40 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     licensePlate: '',
   },
 }) => {
+  const [error, setError] = React.useState(false);
+
   const handleSubmit = (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    onSubmit({
-      id: 0,
-      day: values.day,
-      date: new Date().toISOString(),
-      isActive: true,
-      slot: values.slot,
-      responsable: values.responsable,
-      type: values.type,
-      idResponsable: values.idResponsable,
-      licensePlate: values.licensePlate,
-      //createdAt: new Date().toISOString(),
-      //updatedAt: new Date().toISOString(),
-    });
-
-    resetForm();
+    if (
+      Days[new Date().getDay() - 1] !== 'Sabado' ||
+      Days[new Date().getDay() - 1] !== 'Domingo'
+    ) {
+      onSubmit({
+        id: 0,
+        day: Days[new Date().getDay() - 1],
+        date: new Date().toISOString(),
+        isActive: true,
+        slot: values.slot,
+        responsable: values.responsable,
+        type: values.type,
+        idResponsable: values.idResponsable,
+        licensePlate: values.licensePlate,
+      });
+      addClients({
+        id: 0,
+        day: Days[new Date().getDay() - 1],
+        date: new Date().toISOString(),
+        responsable: values.responsable,
+        idResponsable: values.idResponsable,
+        licensePlate: values.licensePlate,
+      });
+      resetForm();
+    } else {
+      alert('Solo funciona en dias habiles');
+      setError(true);
+    }
   };
   const formik = useFormik({
     initialValues,
@@ -95,25 +111,15 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       {formik.touched.slot && formik.errors.slot && (
         <SpanError>{formik.errors.slot}</SpanError>
       )}
-      <Select
+
+      <Input
         disabled={disabled}
         name="day"
-        placeholder="Dia de entrada"
-        value={formik.values.day}
-        onChange={formik.handleChange}
-      >
-        <option>Seleccione</option>
-        <option>Lunes</option>
-        <option>Martes</option>
-        <option>Miercoles</option>
-        <option>Jueves</option>
-        <option>Viernes</option>
-        <option>Sabado</option>
-        <option>Domingo</option>
-      </Select>
-      {formik.touched.day && formik.errors.day && (
-        <SpanError>{formik.errors.day}</SpanError>
-      )}
+        placeholder="dia de la semana"
+        defaultValue={Days[new Date().getDay() - 1]}
+      />
+      {error && <SpanError>Solo puede registrar en dias habiles</SpanError>}
+
       <Input
         disabled={disabled}
         name="responsable"
@@ -169,6 +175,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
 
 FormCreateVehicle.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  addClients: PropTypes.func.isRequired,
   formTitle: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   initialValues: PropTypes.shape({

@@ -1,5 +1,7 @@
 import {
+  addNewClientsRepository,
   addNewVehicleRepository,
+  listClientsAsync,
   listVehicleAsync,
   removeVehicleRepository,
 } from './../../../core/redux/acciones/vehicles/VehiclesActions';
@@ -13,11 +15,13 @@ const mapStateToProps = (state: EstadoGeneral) => {
 
 const mapDispatchToProps = {
   listVehicles: listVehicleAsync,
+  listClients: listClientsAsync,
   addNewVehicle: addNewVehicleRepository,
+  addNewClients: addNewClientsRepository,
   removeVehicle: removeVehicleRepository,
 };
 
-export const ProviderManagementVehicles = connect(
+export const ProviderManagementVehicle = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ManagementVehicles);
