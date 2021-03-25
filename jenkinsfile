@@ -23,8 +23,8 @@ pipeline {
                 gitTool: 'Default',
                 submoduleCfg: [],
                 userRemoteConfigs: [[
-                    credentialsId: 'Github_jmurilloariza',
-                    url: 'https://github.com/jmurilloariza/parking-ceiba-frontend.git'
+                    credentialsId: 'gelvezz23',
+                    url: 'https://github.com/gelvezz23/parking-ADN-ceiba.git'
                 ]]
             ])
         }
