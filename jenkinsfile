@@ -44,12 +44,18 @@ pipeline {
       }
     }
 
+    stage('Lint Analysis') {
+      steps{
+        echo "------------>Lint Analysis<------------"
+        sh 'npm run lint'
+      }
+    }
+
     stage('Static Code Analysis') {
       steps{
         echo '------------>Static Code Analysis<------------'
         withSonarQubeEnv('Sonar') {
-          sh 'npm run test:coverage'
-            //sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+            sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
         }
       }
     }
