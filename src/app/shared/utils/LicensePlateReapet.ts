@@ -1,4 +1,4 @@
-export const LicensePlateReapet = (
+export const licensePlateReapet = (
   LicensePlate: string,
   newLicensePlate: string
 ): boolean => {

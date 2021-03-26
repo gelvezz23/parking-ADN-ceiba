@@ -5,8 +5,11 @@ export const calculatePaymentWithTime = (time: string, price: number) => {
   const hours = parseInt(formatData[1]);
   const minutes = parseInt(formatData[2]);
 
-  if (minutes <= 59 && days === 0 && hours === 0) {
-    return (priceByHour = 700);
+  const lessMinutes = 59;
+  const priceLessHours = 700;
+
+  if (minutes <= lessMinutes && days === 0 && hours === 0) {
+    return (priceByHour = priceLessHours);
   } else {
     return (priceByHour = (days + hours) * price);
   }
