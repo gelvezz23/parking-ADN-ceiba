@@ -7,6 +7,7 @@
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "cross-env": "^7.0.2",
+    "cypress": "^6.8.0",
     "formik": "^2.1.4",
     "json-server": "^0.16.3",
     "prop-types": "^15.7.2",
@@ -27,7 +28,15 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll",
     "test:coverage": "react-scripts test --watchAll=false --coverage",
+    "test:dev": "cypress open --project ./e2e",
     "lint": "eslint --fix src/**/*.{ts,tsx}"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "cy"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -87,6 +96,7 @@
     },
     "coverageReporters": [
       "json",
+      "xml",
       "lcov",
       "text",
       "text-summary",

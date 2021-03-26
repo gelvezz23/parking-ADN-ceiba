@@ -16,7 +16,7 @@ exports[`FormCrearVehicles test should match snapshot 1`] = `
       class="sc-AxiKw jDersQ"
       name="day"
       placeholder="dia de la semana"
-      value="Jueves"
+      value="Viernes"
     />
     <input
       class="sc-AxiKw jDersQ"

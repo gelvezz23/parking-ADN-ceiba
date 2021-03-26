@@ -3,6 +3,7 @@ import { RenderResult, fireEvent, render, wait } from '@testing-library/react';
 import { SinonStub, stub } from 'sinon';
 import { FormCreateVehicle } from './index';
 import { setTextEvent } from './../../../../shared/utils/test';
+import { Days } from './../../../../shared/components/Days';
 
 describe('FormCrearVehicles test', () => {
   let componentWrapper: RenderResult;
@@ -142,11 +143,11 @@ describe('FormCrearVehicles test', () => {
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
     });
-
+    const date = Days[new Date().getDay() - 1];
     const formSubmitted = componentProps.onSubmit.firstCall.args[0];
 
     expect(formSubmitted.slot).toBe('slot');
-    expect(formSubmitted.day).toBe('Jueves');
+    expect(formSubmitted.day).toBe(date);
     expect(formSubmitted.responsable).toBe('responsable');
     expect(formSubmitted.type).toBe('Moto');
     expect(formSubmitted.idResponsable).toBe('1090');
