@@ -96,7 +96,6 @@
     },
     "coverageReporters": [
       "json",
-      "xml",
       "lcov",
       "text",
       "text-summary",
