@@ -1,9 +1,9 @@
 import { CalculatePayment } from '../vehiclesInterface';
-import { CalculatePaymentWithTime } from './../calculatePaymentWithTime';
+import { calculatePaymentWithTime } from './../calculatePaymentWithTime';
 
 export class CalculatePaymentCar implements CalculatePayment {
   paymentCalculate(time: any) {
     const priceOfCar = 1000;
-    return CalculatePaymentWithTime(time, priceOfCar);
+    return calculatePaymentWithTime(time, priceOfCar);
   }
 }

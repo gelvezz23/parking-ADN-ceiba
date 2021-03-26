@@ -1,4 +1,4 @@
-export const CalculatePaymentWithTime = (time: string, price: number) => {
+export const calculatePaymentWithTime = (time: string, price: number) => {
   const formatData = time.split(':');
   let priceByHour = 0;
   const days = parseInt(formatData[0]) * 24;
