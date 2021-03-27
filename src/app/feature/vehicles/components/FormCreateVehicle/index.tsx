@@ -4,13 +4,13 @@ import * as Yup from 'yup';
 
 import { Button } from '../../../../shared/components/Button';
 import { Clients } from './../../../Clients/models/Clients';
-
 import { Days } from './../../../../shared/components/Days';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from '../../../../shared/components/Input';
 import { Select } from '../../../../shared/components/Select';
 import { SpanError } from './styles';
 import { Vehicle } from '../../models/Vehicle';
+import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
 import { useFormik } from 'formik';
 
 interface FormValues {
@@ -26,6 +26,7 @@ interface FormCreateVehicleProp {
   addClients: (payload: Clients) => any;
   disabled?: boolean;
   formTitle: string;
+  vehicle: Array<Vehicle>;
   initialValues?: FormValues;
 }
 
@@ -45,6 +46,7 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   onSubmit,
+  vehicle,
   addClients,
   disabled,
   formTitle,
@@ -63,10 +65,11 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    if (
-      Days[new Date().getDay() - 1] !== 'Sabado' ||
-      Days[new Date().getDay() - 1] !== 'Domingo'
-    ) {
+    const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
+    console.log(vehicleIsRepeat);
+    if (vehicleIsRepeat) {
+      setError(true);
+    } else {
       onSubmit({
         id: 0,
         day: Days[new Date().getDay() - 1],
@@ -86,10 +89,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         idResponsable: values.idResponsable,
         licensePlate: values.licensePlate,
       });
+      setError(false);
       resetForm();
-    } else {
-      alert('Solo funciona en dias habiles');
-      setError(true);
     }
   };
   const formik = useFormik({
@@ -118,7 +119,6 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         placeholder="dia de la semana"
         defaultValue={Days[new Date().getDay() - 1]}
       />
-      {error && <SpanError>Solo puede registrar en dias habiles</SpanError>}
 
       <Input
         disabled={disabled}
@@ -167,7 +167,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       {formik.touched.licensePlate && formik.errors.licensePlate && (
         <SpanError>{formik.errors.licensePlate}</SpanError>
       )}
-
+      {error && <h2>La placa de el vehiculo ya se encuentra registrada</h2>}
       <Button type="submit">Registrar</Button>
     </form>
   );
@@ -177,6 +177,7 @@ FormCreateVehicle.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   addClients: PropTypes.func.isRequired,
   formTitle: PropTypes.string.isRequired,
+  vehicle: PropTypes.array.isRequired,
   disabled: PropTypes.bool,
   initialValues: PropTypes.shape({
     slot: PropTypes.string.isRequired,

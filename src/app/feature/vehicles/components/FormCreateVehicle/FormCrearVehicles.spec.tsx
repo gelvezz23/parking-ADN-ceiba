@@ -1,9 +1,12 @@
 import * as React from 'react';
+
 import { RenderResult, fireEvent, render, wait } from '@testing-library/react';
+
 import { SinonStub, stub } from 'sinon';
+import { Days } from './../../../../shared/components/Days';
+
 import { FormCreateVehicle } from './index';
 import { setTextEvent } from './../../../../shared/utils/test';
-import { Days } from './../../../../shared/components/Days';
 
 describe('FormCrearVehicles test', () => {
   let componentWrapper: RenderResult;
@@ -16,6 +19,7 @@ describe('FormCrearVehicles test', () => {
       formTitle: 'Form test',
       onSubmit: stub(),
       addClients: stub(),
+      vehicle: [],
     };
     componentWrapper = render(<FormCreateVehicle {...componentProps} />);
   });

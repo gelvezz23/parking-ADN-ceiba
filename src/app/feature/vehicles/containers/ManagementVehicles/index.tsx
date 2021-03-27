@@ -40,6 +40,7 @@ const ManagementVehicles: React.FC<ManagementVehicleProps> = ({
           addClients={addNewClients}
           onSubmit={addNewVehicle}
           formTitle="Ingresar Vehiculo"
+          vehicle={vehicles}
         />
       </LeftSideblock>
       <RightSide>

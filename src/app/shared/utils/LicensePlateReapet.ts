@@ -1,6 +1,12 @@
+import { Vehicle } from './../../feature/vehicles/models/Vehicle';
+
 export const licensePlateReapet = (
-  LicensePlate: string,
+  vehicles: Array<Vehicle>,
   newLicensePlate: string
-): boolean => {
-  return LicensePlate === newLicensePlate;
+) => {
+  const licensePlateIsRepeat = vehicles.find(
+    (vehicle) => vehicle.licensePlate === newLicensePlate
+  );
+
+  return licensePlateIsRepeat ? true : false;
 };
