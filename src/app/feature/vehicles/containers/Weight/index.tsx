@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
 import {
   DivContainer,
   Slot,
   SlotInfo,
 } from './../../components/ListVehicles/styles';
-import React, { useEffect } from 'react';
 
 import { Link } from './../../../../shared/components/Link';
 import { Vehicle } from './../../models/Vehicle';
@@ -12,10 +13,9 @@ import imgWeight from './../../../../../assets/img/weight.png';
 
 interface WeightProps {
   vehicles: Array<Vehicle>;
-  listVehicles: () => void;
 }
 
-const weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
+const weight: React.FC<WeightProps> = ({ vehicles }) => {
   return (
     <div className="fadeInDown">
       <h5>Motos</h5>
@@ -52,7 +52,6 @@ const weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
 
 weight.propTypes = {
   vehicles: PropTypes.array.isRequired,
-  listVehicles: PropTypes.func.isRequired,
 };
 
 export default weight;

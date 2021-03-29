@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
 import {
   DivContainer,
   Slot,
   SlotInfo,
 } from './../../components/ListVehicles/styles';
-import React, { useEffect } from 'react';
 
 import { Link } from './../../../../shared/components/Link';
 import { Vehicle } from './../../models/Vehicle';
@@ -12,14 +13,9 @@ import imgMoto from './../../../../../assets/img/moto.png';
 
 interface MotosProps {
   vehicles: Array<Vehicle>;
-  listVehicles: () => void;
 }
 
-const motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
-  useEffect(() => {
-    listVehicles();
-  }, [listVehicles]);
-
+const motos: React.FC<MotosProps> = ({ vehicles }) => {
   return (
     <div className="fadeInDown">
       <h5>Motos</h5>
@@ -56,7 +52,6 @@ const motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
 
 motos.propTypes = {
   vehicles: PropTypes.array.isRequired,
-  listVehicles: PropTypes.func.isRequired,
 };
 
 export default motos;

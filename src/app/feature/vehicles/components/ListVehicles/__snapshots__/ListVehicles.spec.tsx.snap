@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test List Clients should match snapshot 1`] = `
+<div>
+  <div
+    class="fadeInDown"
+  >
+    <h5>
+      Motos
+    </h5>
+    <div
+      class="sc-AxiKw bReNwz"
+    >
+      <div
+        class="animate__heartBeat"
+      >
+        <div
+          class="sc-AxjAm hWztmq"
+        >
+          <div
+            class="sc-AxirZ jEmvie"
+          >
+            <img
+              alt="Imagen de Moto"
+              src="moto.png"
+              style="width: 50px;"
+            />
+            <p>
+              Carlos
+            </p>
+            <p>
+              XZY88
+            </p>
+            <p>
+              Moto
+            </p>
+            <button
+              class="sc-AxhCb fNxkEz"
+            >
+              <span
+                aria-labelledby="trash"
+                role="img"
+              >
+                salida 🕑
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fadeInDown"
+  >
+    <h5>
+      Carros 
+    </h5>
+    <div
+      class="sc-AxiKw bReNwz"
+    >
+      <div
+        class="animate__heartBeat"
+      >
+        <div
+          class="sc-AxjAm hWztmq"
+        >
+          <div
+            class="sc-AxirZ jEmvie"
+          >
+            <img
+              alt="Imagen de Carro"
+              src="car.png"
+              style="width: 50px;"
+            />
+            <p>
+              Carlos
+            </p>
+            <p>
+              XZY888
+            </p>
+            <p>
+              Carro
+            </p>
+            <button
+              class="sc-AxhCb fNxkEz"
+            >
+              <span
+                aria-labelledby="trash"
+                role="img"
+              >
+                salida 🕑
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fadeInDown"
+  >
+    <h5>
+      Vehiculos Pesados : 
+      0
+    </h5>
+    <div
+      class="sc-AxiKw bReNwz"
+    >
+      <div
+        class="animate__heartBeat"
+      >
+        <div
+          class="sc-AxjAm hWztmq"
+        >
+          <div
+            class="sc-AxirZ jEmvie"
+          >
+            <img
+              alt="Imagen de vehiculo pesado"
+              src="weight.png"
+              style="width: 50px;"
+            />
+            <p>
+              Carlos
+            </p>
+            <p>
+              XZY889
+            </p>
+            <p>
+              Weight
+            </p>
+            <button
+              class="sc-AxhCb fNxkEz"
+            >
+              <span
+                aria-labelledby="trash"
+                role="img"
+              >
+                salida 🕑
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

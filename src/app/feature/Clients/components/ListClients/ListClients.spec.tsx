@@ -25,13 +25,8 @@ describe('test List Clients', () => {
       licensePlate: 'XZY888',
     },
   ];
-  let componentProps: React.ComponentProps<typeof ListClients> & {
-    clients: Array<Clients>;
-  } = { clients };
+
   beforeEach(() => {
-    componentProps = {
-      clients,
-    };
     componentWrapper = render(
       <Router>
         <ListClients clients={clients} />
