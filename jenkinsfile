@@ -63,6 +63,13 @@ pipeline {
       }
     }
 
+    stage('Test e2e') {
+      steps{
+        echo "------------>Testing<------------"
+        sh 'npm run test:e2e'
+      }
+    }
+
     stage('Build') {
       steps{
         echo "------------>Building<------------"
