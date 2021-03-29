@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="37" failures="0" errors="0" time="24.809">
+  <testsuite name="Reducers Clients" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="8.193" tests="1">
+    <testcase classname="Reducers Clients I should save a client " name="Reducers Clients I should save a client " time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Reducers Vehicles" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="8.166" tests="1">
+    <testcase classname="Reducers Vehicles I should save a vehicle " name="Reducers Vehicles I should save a vehicle " time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Reductor productos" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="8.334" tests="1">
+    <testcase classname="Reductor productos debería agregar productos" name="Reductor productos debería agregar productos" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="test on patters Strategy CalculatePaymentMoto" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:47" time="1.138" tests="2">
+    <testcase classname="test on patters Strategy CalculatePaymentMoto Calculate one hours of parking is 500" name="test on patters Strategy CalculatePaymentMoto Calculate one hours of parking is 500" time="0.002">
+    </testcase>
+    <testcase classname="test on patters Strategy CalculatePaymentMoto Calculate less of one hours of parking is 500" name="test on patters Strategy CalculatePaymentMoto Calculate less of one hours of parking is 500" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test on patters Strategy CalculatePaymentMoto" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:47" time="1.249" tests="2">
+    <testcase classname="test on patters Strategy CalculatePaymentMoto Calculate one hours of parking is 2000" name="test on patters Strategy CalculatePaymentMoto Calculate one hours of parking is 2000" time="0.002">
+    </testcase>
+    <testcase classname="test on patters Strategy CalculatePaymentMoto Calculate less of one hours of parking is 500" name="test on patters Strategy CalculatePaymentMoto Calculate less of one hours of parking is 500" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="PaginadorProductos Test" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:47" time="1.316" tests="3">
+    <testcase classname="PaginadorProductos Test should match snapshot" name="PaginadorProductos Test should match snapshot" time="0.029">
+    </testcase>
+    <testcase classname="PaginadorProductos Test Renderizar con menos de 10 productos no debe pintar botones" name="PaginadorProductos Test Renderizar con menos de 10 productos no debe pintar botones" time="0.003">
+    </testcase>
+    <testcase classname="PaginadorProductos Test Renderizar con  20 productos debe pintar 2 botones" name="PaginadorProductos Test Renderizar con  20 productos debe pintar 2 botones" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="test of calculate date to hours" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:48" time="1.122" tests="3">
+    <testcase classname="test of calculate date to hours testing of 3600 seconds to hours" name="test of calculate date to hours testing of 3600 seconds to hours" time="0.002">
+    </testcase>
+    <testcase classname="test of calculate date to hours testing of 86400 seconds to one day" name="test of calculate date to hours testing of 86400 seconds to one day" time="0.001">
+    </testcase>
+    <testcase classname="test of calculate date to hours testing of 3600 seconds not is one day" name="test of calculate date to hours testing of 3600 seconds not is one day" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test calculate payment with time" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:48" time="1.162" tests="3">
+    <testcase classname="test calculate payment with time i should calculate payment" name="test calculate payment with time i should calculate payment" time="0.002">
+    </testcase>
+    <testcase classname="test calculate payment with time i should calculate payment less time" name="test calculate payment with time i should calculate payment less time" time="0.001">
+    </testcase>
+    <testcase classname="test calculate payment with time i should calculate other payment" name="test calculate payment with time i should calculate other payment" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test of licensePlateReapet" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:48" time="1.185" tests="3">
+    <testcase classname="test of licensePlateReapet Receive a repeat vehicle " name="test of licensePlateReapet Receive a repeat vehicle " time="0.002">
+    </testcase>
+    <testcase classname="test of licensePlateReapet Receive a new vehicle " name="test of licensePlateReapet Receive a new vehicle " time="0.001">
+    </testcase>
+    <testcase classname="test of licensePlateReapet Not receive a new vehicle " name="test of licensePlateReapet Not receive a new vehicle " time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="test List Clients" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="11.224" tests="2">
+    <testcase classname="test List Clients should match snapshot" name="test List Clients should match snapshot" time="0.167">
+    </testcase>
+    <testcase classname="test List Clients should render 3 td" name="test List Clients should render 3 td" time="0.036">
+    </testcase>
+  </testsuite>
+  <testsuite name="test on patters Strategy CalculatePaymentCar" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:50" time="0.908" tests="2">
+    <testcase classname="test on patters Strategy CalculatePaymentCar Calculate one hours of parking is 1000" name="test on patters Strategy CalculatePaymentCar Calculate one hours of parking is 1000" time="0.002">
+    </testcase>
+    <testcase classname="test on patters Strategy CalculatePaymentCar Calculate less of one hours of parking is 500" name="test on patters Strategy CalculatePaymentCar Calculate less of one hours of parking is 500" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="test List Clients" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="12.083" tests="4">
+    <testcase classname="test List Clients should match snapshot" name="test List Clients should match snapshot" time="0.166">
+    </testcase>
+    <testcase classname="test List Clients should render 9 p" name="test List Clients should render 9 p" time="0.022">
+    </testcase>
+    <testcase classname="test List Clients should render 3 images" name="test List Clients should render 3 images" time="0.027">
+    </testcase>
+    <testcase classname="test List Clients should render 3 titles" name="test List Clients should render 3 titles" time="0.031">
+    </testcase>
+  </testsuite>
+  <testsuite name="FormCrearProducto test" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="12.281" tests="5">
+    <testcase classname="FormCrearProducto test should match snapshot" name="FormCrearProducto test should match snapshot" time="0.107">
+    </testcase>
+    <testcase classname="FormCrearProducto test should fail on submit all fields missing" name="FormCrearProducto test should fail on submit all fields missing" time="0.053">
+    </testcase>
+    <testcase classname="FormCrearProducto test should fail on submit two fields missing" name="FormCrearProducto test should fail on submit two fields missing" time="0.052">
+    </testcase>
+    <testcase classname="FormCrearProducto test should fail on submit two fields missing" name="FormCrearProducto test should fail on submit two fields missing" time="0.054">
+    </testcase>
+    <testcase classname="FormCrearProducto test should submit" name="FormCrearProducto test should submit" time="0.078">
+    </testcase>
+  </testsuite>
+  <testsuite name="FormCrearVehicles test" errors="0" failures="0" skipped="0" timestamp="2021-03-29T22:05:39" time="12.494" tests="5">
+    <testcase classname="FormCrearVehicles test should match snapshot" name="FormCrearVehicles test should match snapshot" time="0.131">
+    </testcase>
+    <testcase classname="FormCrearVehicles test should fail on submit all fields missing" name="FormCrearVehicles test should fail on submit all fields missing" time="0.089">
+    </testcase>
+    <testcase classname="FormCrearVehicles test should fail on submit four fields missing" name="FormCrearVehicles test should fail on submit four fields missing" time="0.052">
+    </testcase>
+    <testcase classname="FormCrearVehicles test should fail on submit four fields missing" name="FormCrearVehicles test should fail on submit four fields missing" time="0.061">
+    </testcase>
+    <testcase classname="FormCrearVehicles test should submit" name="FormCrearVehicles test should submit" time="0.136">
+    </testcase>
+  </testsuite>
+</testsuites>
