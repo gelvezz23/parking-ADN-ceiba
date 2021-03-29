@@ -8,7 +8,7 @@ export const Select = styled.select`
 
   margin-bottom: 8px;
   padding: 10px 20px;
-  width: 350px;
+  width: 100%;
 
   &[disabled] {
     opacity: 0.3;

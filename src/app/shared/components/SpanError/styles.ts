@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const SpanError = styled.span`
+export const SpanErrorAlert = styled.span`
   color: #f62d2d;
   font-weight: bold;
-  font-size: 8px;
+  font-size: 10px;
 `;

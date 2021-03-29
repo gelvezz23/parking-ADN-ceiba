@@ -5,10 +5,11 @@ import * as Yup from 'yup';
 import { Button } from '../../../../shared/components/Button';
 import { Clients } from './../../../Clients/models/Clients';
 import { Days } from './../../../../shared/components/Days';
+
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from '../../../../shared/components/Input';
 import { Select } from '../../../../shared/components/Select';
-import { SpanError } from './styles';
+import SpanErrorAlert from './../../../../shared/components/SpanError';
 import { Vehicle } from '../../models/Vehicle';
 import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
 import { useFormik } from 'formik';
@@ -60,19 +61,22 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   },
 }) => {
   const [error, setError] = React.useState(false);
-
+  const daysOnWeek =
+    new Date().getDay() == 0 || new Date().getDay() == -1
+      ? Days[6]
+      : Days[new Date().getDay() - 1];
   const handleSubmit = (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
-    console.log(vehicleIsRepeat);
+
     if (vehicleIsRepeat) {
       setError(true);
     } else {
       onSubmit({
         id: 0,
-        day: Days[new Date().getDay() - 1],
+        day: daysOnWeek,
         date: new Date().toISOString(),
         isActive: true,
         slot: values.slot,
@@ -83,7 +87,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       });
       addClients({
         id: 0,
-        day: Days[new Date().getDay() - 1],
+        day: daysOnWeek,
         date: new Date().toISOString(),
         responsable: values.responsable,
         idResponsable: values.idResponsable,
@@ -110,14 +114,14 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         onChange={formik.handleChange}
       />
       {formik.touched.slot && formik.errors.slot && (
-        <SpanError>{formik.errors.slot}</SpanError>
+        <SpanErrorAlert msg={formik.errors.slot} />
       )}
 
       <Input
         disabled={disabled}
         name="day"
         placeholder="dia de la semana"
-        defaultValue={Days[new Date().getDay() - 1]}
+        defaultValue={daysOnWeek}
       />
 
       <Input
@@ -128,7 +132,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         onChange={formik.handleChange}
       />
       {formik.touched.responsable && formik.errors.responsable && (
-        <SpanError>{formik.errors.responsable}</SpanError>
+        <SpanErrorAlert msg={formik.errors.responsable} />
       )}
       <Select
         disabled={disabled}
@@ -143,7 +147,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         <option value="Weight">Vehiculo pesado</option>
       </Select>
       {formik.touched.type && formik.errors.type && (
-        <SpanError>{formik.errors.type}</SpanError>
+        <SpanErrorAlert msg={formik.errors.type} />
       )}
 
       <Input
@@ -154,7 +158,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         onChange={formik.handleChange}
       />
       {formik.touched.idResponsable && formik.errors.idResponsable && (
-        <SpanError>{formik.errors.idResponsable}</SpanError>
+        <SpanErrorAlert msg={formik.errors.idResponsable} />
       )}
 
       <Input
@@ -165,9 +169,13 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         onChange={formik.handleChange}
       />
       {formik.touched.licensePlate && formik.errors.licensePlate && (
-        <SpanError>{formik.errors.licensePlate}</SpanError>
+        <SpanErrorAlert msg={formik.errors.licensePlate} />
       )}
-      {error && <h2>La placa de el vehiculo ya se encuentra registrada</h2>}
+      {error && (
+        <SpanErrorAlert
+          msg={'La placa de el vehiculo ya se encuentra registrada'}
+        />
+      )}
       <Button type="submit">Registrar</Button>
     </form>
   );

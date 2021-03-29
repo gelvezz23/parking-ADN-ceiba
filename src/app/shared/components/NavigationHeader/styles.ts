@@ -15,7 +15,7 @@ export const HeaderNav = styled.nav`
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  background-color: #f8f9fa;
+  background-color: #2f2f2f;
   box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.2);
 `;
 

@@ -11,9 +11,9 @@ export class GlobalErrorBoundary extends React.Component<any, any> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log error to metrics
-  }
+  //componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  // Log error to metrics
+  //}
 
   render() {
     if (this.state.hasError) {

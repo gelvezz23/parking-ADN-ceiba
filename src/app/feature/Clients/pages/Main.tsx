@@ -3,7 +3,7 @@ import { Layout } from './../../../shared/components/Layout';
 import { ProviderManagementClients } from './../hoc/ProviderManagementClients';
 import { RouteComponentProps } from 'react-router-dom';
 
-const MainPage: React.FC<RouteComponentProps> = () => {
+const ClientsPage: React.FC<RouteComponentProps> = () => {
   return (
     <Layout title="Cliente" description="Gestión de clientes">
       <ProviderManagementClients />
@@ -11,6 +11,6 @@ const MainPage: React.FC<RouteComponentProps> = () => {
   );
 };
 
-MainPage.displayName = 'HomeMainPage';
+ClientsPage.displayName = 'ClientsPage';
 
-export default MainPage;
+export default ClientsPage;

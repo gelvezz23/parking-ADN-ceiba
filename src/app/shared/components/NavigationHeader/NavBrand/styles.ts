@@ -17,6 +17,7 @@ export const LogoSpan = styled.span`
 
 export const BrandLink = styled(Link)`
   text-decoration: none;
+  color: white;
 `;
 
 export default {};

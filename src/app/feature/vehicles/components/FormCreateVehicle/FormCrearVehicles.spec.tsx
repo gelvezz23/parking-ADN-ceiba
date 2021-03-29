@@ -147,7 +147,10 @@ describe('FormCrearVehicles test', () => {
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
     });
-    const date = Days[new Date().getDay() - 1];
+    const date =
+      new Date().getDay() == 0 || new Date().getDay() == -1
+        ? Days[6]
+        : Days[new Date().getDay() - 1];
     const formSubmitted = componentProps.onSubmit.firstCall.args[0];
 
     expect(formSubmitted.slot).toBe('slot');

@@ -7,25 +7,25 @@ exports[`FormCrearVehicles test should match snapshot 1`] = `
       Form test
     </h2>
     <input
-      class="sc-AxiKw jDersQ"
+      class="sc-AxiKw deCLXK"
       name="slot"
       placeholder="Posicion donde va"
       value=""
     />
     <input
-      class="sc-AxiKw jDersQ"
+      class="sc-AxiKw deCLXK"
       name="day"
       placeholder="dia de la semana"
-      value="Sabado"
+      value="Lunes"
     />
     <input
-      class="sc-AxiKw jDersQ"
+      class="sc-AxiKw deCLXK"
       name="responsable"
       placeholder="Nombre de el responsable"
       value=""
     />
     <select
-      class="sc-AxhCb bvOEQw"
+      class="sc-AxhCb lmESJy"
       name="type"
       placeholder="Tipo"
     >
@@ -49,19 +49,19 @@ exports[`FormCrearVehicles test should match snapshot 1`] = `
       </option>
     </select>
     <input
-      class="sc-AxiKw jDersQ"
+      class="sc-AxiKw deCLXK"
       name="idResponsable"
       placeholder="Identificacion del responsable"
       value=""
     />
     <input
-      class="sc-AxiKw jDersQ"
+      class="sc-AxiKw deCLXK"
       name="licensePlate"
       placeholder="Placa del vehiculo"
       value=""
     />
     <button
-      class="sc-AxjAm cRDllq"
+      class="sc-AxjAm iPvOGw"
       type="submit"
     >
       Registrar

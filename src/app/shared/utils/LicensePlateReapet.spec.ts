@@ -27,15 +27,26 @@ describe('test of licensePlateReapet', () => {
   ];
   let newLicensePlate;
 
-  test('Recibe un vehiculo repetido', () => {
+  test('Receive a repeat vehicle ', () => {
     // Arrange
-
     newLicensePlate = 'XZY88';
-    expect(licensePlateReapet(vehicles, newLicensePlate)).toBe(true);
+    //Act
+    const expected = licensePlateReapet(vehicles, newLicensePlate);
+    //Assert
+    expect(expected).toBe(true);
   });
 
-  test('Recibe un vehiculo nuevo', () => {
+  test('Receive a new vehicle ', () => {
     newLicensePlate = 'XZY8899';
-    expect(licensePlateReapet(vehicles, newLicensePlate)).not.toBe(true);
+    const expected = licensePlateReapet(vehicles, newLicensePlate);
+
+    expect(expected).not.toBe(true);
+  });
+
+  test('Not receive a new vehicle ', () => {
+    newLicensePlate = '';
+    const expected = licensePlateReapet(vehicles, newLicensePlate);
+
+    expect(expected).not.toBe(true);
   });
 });

@@ -9,7 +9,7 @@ import ManagementClients from './../containers/ManagementClients';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state: EstadoGeneral) => {
-  return state.clients;
+  return state.Clients;
 };
 
 const mapDispatchToProps = {

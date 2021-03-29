@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test List Clients should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-AxiKw gbEGRu"
+  >
+    <h5>
+      Historial de Clientes
+    </h5>
+    <div
+      class="sc-AxirZ iYlrcd"
+    >
+      <table
+        class="sc-AxjAm dKjXjL"
+      >
+        <thead>
+          <tr>
+            <th>
+              <h2>
+                #
+              </h2>
+            </th>
+            <th>
+              <h2>
+                Nombre
+              </h2>
+            </th>
+            <th>
+              <h2>
+                Identificacion
+              </h2>
+            </th>
+            <th>
+              <h2>
+                Placa de vehiculo
+              </h2>
+            </th>
+            <th>
+              <h2>
+                Dia de registro
+              </h2>
+            </th>
+            <th>
+              <h2>
+                Hora de registro
+              </h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <h5>
+                1
+              </h5>
+            </td>
+            <td>
+              <h5>
+                Carlos
+              </h5>
+            </td>
+            <td>
+              <h5>
+                1090503315
+              </h5>
+            </td>
+            <td>
+              <h5>
+                XZY88
+              </h5>
+            </td>
+            <td>
+              <h5>
+                Domingo
+              </h5>
+            </td>
+            <td>
+              <h5>
+                22:17:22
+              </h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>
+                2
+              </h5>
+            </td>
+            <td>
+              <h5>
+                Carlos
+              </h5>
+            </td>
+            <td>
+              <h5>
+                1090503315
+              </h5>
+            </td>
+            <td>
+              <h5>
+                XZY888
+              </h5>
+            </td>
+            <td>
+              <h5>
+                Domingo
+              </h5>
+            </td>
+            <td>
+              <h5>
+                22:22:17
+              </h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a
+      class="sc-AxhCb lbSIQY"
+      href="/"
+    >
+      <h5>
+        Volver
+      </h5>
+    </a>
+  </div>
+</div>
+`;

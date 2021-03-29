@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const Slot = styled.div`
-  position: relative;
-  background-color: white;
+  background-color: #2d2d2d;
   margin: 10px;
-  width: 120px;
-  height: 170px;
+  width: 150px;
+  height: 200px;
   border-radius: 25px;
 
   -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3),
@@ -13,18 +12,35 @@ export const Slot = styled.div`
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3),
     0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3), 0 0 80px rgba(0, 0, 0, 0.1) inset;
+
+  transition: 450ms all;
+  transform-origin: center left;
+  z-index: 1;
+  &:hover {
+    width: 180px;
+    height: 230px;
+    transform: translate3d(5px, 0, 0);
+    opacity: 1;
+  }
 `;
 
 export const SlotInfo = styled.div`
   align-items: center;
-
+  color: white;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
   padding: 5px;
   width: 100%;
   z-indez: 10000;
+
+  p:first-of-type {
+    font-weight: lighter;
+  }
+
+  p:last-of-type {
+    font-weight: lighter;
+  }
 `;
 
 export const DivContainer = styled.div`
@@ -36,6 +52,7 @@ export const DivContainer = styled.div`
   flex-wrap: wrap;
   text-align: center;
   display: flex;
+  justify-content: center;
 
   width: 100%;
   height: 100%;

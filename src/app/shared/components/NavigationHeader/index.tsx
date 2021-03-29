@@ -5,7 +5,16 @@ import { NavBrand } from './NavBrand';
 import { NavList } from './NavList';
 
 export const NavigationHeader: React.FC = () => {
-  const routes = [{ label: 'Home', url: '/' }];
+  const routes = [
+    { label: 'Inicio', url: '/' },
+    { label: ' Motos', url: '/motos' },
+    { label: 'Carros', url: '/carros' },
+    {
+      label: 'Vehiculos Pesados',
+      url: '/pesados',
+    },
+    { label: 'Clientes', url: '/clientes' },
+  ];
   return (
     <HeaderNav>
       <NavBrand imgSrc={LogoCeiba} text="Ceiba Software"></NavBrand>

@@ -1,6 +1,8 @@
 import * as PropTypes from 'prop-types';
 import { Clients } from './../../models/Clients';
+import { DivContainer } from 'app/shared/components/Layout/styles';
 
+import ListClients from './../../components/ListClients';
 import React from 'react';
 import { useEffect } from 'react';
 
@@ -21,7 +23,11 @@ const ManagementClients: React.FC<ManagementClientsProps> = ({
     listClients();
   }, [listClients]);
 
-  return <h1>Hola !! </h1>;
+  return (
+    <DivContainer>
+      <ListClients clients={clients} />
+    </DivContainer>
+  );
 };
 
 ManagementClients.propTypes = {
