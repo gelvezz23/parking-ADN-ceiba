@@ -147,9 +147,10 @@ describe('FormCrearVehicles test', () => {
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
     });
+    const sundayPosition = 6;
     const date =
-      new Date().getDay() == 0 || new Date().getDay() == -1
-        ? Days[6]
+      new Date().getDay() === 0 || new Date().getDay() === -1
+        ? Days[sundayPosition]
         : Days[new Date().getDay() - 1];
     const formSubmitted = componentProps.onSubmit.firstCall.args[0];
 

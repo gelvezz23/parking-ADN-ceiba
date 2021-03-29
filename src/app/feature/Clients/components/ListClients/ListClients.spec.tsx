@@ -3,7 +3,6 @@ import { RenderResult, render } from '@testing-library/react';
 import { Clients } from '../../models/Clients';
 import ListClients from './index';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { shallow } from 'enzyme';
 
 describe('test List Clients', () => {
   let componentWrapper: RenderResult;
@@ -30,7 +29,7 @@ describe('test List Clients', () => {
   ];
   beforeEach(() => {
     componentProps = {
-      clients: clients,
+      clients,
     };
     componentWrapper = render(
       <Router>

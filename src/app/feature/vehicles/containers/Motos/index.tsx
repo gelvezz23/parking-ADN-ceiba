@@ -19,7 +19,6 @@ const Motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
     listVehicles();
   }, [listVehicles]);
 
-  console.log(window.location.pathname);
   return (
     <div className="fadeInDown">
       <h5>Motos</h5>

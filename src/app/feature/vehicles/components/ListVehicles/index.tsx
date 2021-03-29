@@ -1,13 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
+import { Slot, SlotInfo } from './styles';
 import { BtnRemoveVehicle } from './../RemoveVehicle';
-import { Clients } from 'app/feature/Clients/models/Clients';
-
 import { DivContainer } from './styles';
-import { Slot } from './styles';
-import { SlotInfo } from './styles';
 import { Vehicle } from '../../models/Vehicle';
-
 import imgCarro from './../../../../../assets/img/car.png';
 import imgMoto from './../../../../../assets/img/moto.png';
 import imgWeight from './../../../../../assets/img/weight.png';

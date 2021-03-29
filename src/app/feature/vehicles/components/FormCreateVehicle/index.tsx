@@ -61,9 +61,10 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   },
 }) => {
   const [error, setError] = React.useState(false);
+  const sundayPosition = 6;
   const daysOnWeek =
-    new Date().getDay() == 0 || new Date().getDay() == -1
-      ? Days[6]
+    new Date().getDay() === 0 || new Date().getDay() === -1
+      ? Days[sundayPosition]
       : Days[new Date().getDay() - 1];
   const handleSubmit = (
     values: FormValues,

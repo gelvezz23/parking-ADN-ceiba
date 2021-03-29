@@ -1,17 +1,15 @@
+import { ContainerScrolling, Table } from './styles';
 import { Clients } from './../../models/Clients';
-import { ContainerScrolling } from './styles';
-
 import { DivContainer } from 'app/shared/components/Layout/styles';
 import { Link } from './../../../../shared/components/Link';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Table } from './styles';
 
 interface ListClientsProps {
   clients: Array<Clients>;
 }
 
-const ListClients: React.FC<ListClientsProps> = ({ clients }) => {
+const listClients: React.FC<ListClientsProps> = ({ clients }) => {
   return (
     <DivContainer>
       <h5>Historial de Clientes</h5>
@@ -75,8 +73,8 @@ const ListClients: React.FC<ListClientsProps> = ({ clients }) => {
     </DivContainer>
   );
 };
-ListClients.propTypes = {
+listClients.propTypes = {
   clients: PropTypes.array.isRequired,
 };
 
-export default ListClients;
+export default listClients;
