@@ -4,7 +4,6 @@ import { SinonStub, stub } from 'sinon';
 import { ListVehicles } from './index';
 
 import { Vehicle } from '../../models/Vehicle';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('test List Clients', () => {
   let componentWrapper: RenderResult;

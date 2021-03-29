@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { RenderResult, render } from '@testing-library/react';
-import { Clients } from '../../models/Clients';
 import ListClients from './index';
 import { BrowserRouter as Router } from 'react-router-dom';
 

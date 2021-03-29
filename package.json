@@ -28,7 +28,7 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll",
     "test:coverage": "react-scripts test --watchAll=false --coverage",
-    "test:dev": "cypress open --project ./e2e",
+    "test:dev": "cypress run --project ./e2e",
     "lint": "eslint --fix src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
