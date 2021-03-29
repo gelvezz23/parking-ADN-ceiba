@@ -1,10 +1,4 @@
-const { before } = require('mocha');
-
 describe('test form', () => {
-  before(() => {
-    cy.exec('npm run start');
-  });
-
   beforeEach(() => {
     cy.fixture('Vehicles.json').as('VehicleData');
   });
@@ -48,9 +42,5 @@ describe('test form', () => {
     cy.get('form > :nth-child(8)').should('be.visible');
     cy.get('form > :nth-child(10)').should('be.visible');
     cy.get('form > :nth-child(12)').should('be.visible');
-  });
-
-  after(() => {
-    cy.log('Fished');
   });
 });
