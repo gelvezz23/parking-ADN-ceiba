@@ -29,7 +29,8 @@
     "test:watch": "react-scripts test --watchAll",
     "test:coverage": "react-scripts test --watchAll=false --coverage",
     "test:dev": "cypress run --project ./e2e",
-    "lint": "eslint --fix src/**/*.{ts,tsx}"
+    "lint": "eslint --fix src/**/*.{ts,tsx}",
+    "test:e2e": "(npx react-scripts start) & echo $! > npx.pid && npx cypress run --project ./e2e && kill cat npx.pid && rm npx.pid"
   },
   "eslintConfig": {
     "extends": "react-app"

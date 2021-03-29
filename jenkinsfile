@@ -45,12 +45,7 @@ pipeline {
       }
     }
 
-    stage('Test e2e') {
-      steps{
-        echo "------------>Testing<------------"
-        sh 'npm run test:dev'
-      }
-    }
+    
 
     stage('Lint Analysis') {
       steps{

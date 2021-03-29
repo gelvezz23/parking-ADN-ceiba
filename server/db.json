@@ -43,6 +43,17 @@
       "type": "Moto",
       "idResponsable": "1090",
       "licensePlate": "XZY81"
+    },
+    {
+      "id": 6,
+      "day": "Lunes",
+      "date": "2021-03-29T20:27:20.802Z",
+      "isActive": true,
+      "slot": "M1",
+      "responsable": "Carlos",
+      "type": "Moto",
+      "idResponsable": "1090503315",
+      "licensePlate": "XZY887777"
     }
   ],
   "Clientes": [
@@ -85,6 +96,14 @@
       "responsable": "Juan",
       "idResponsable": "1090",
       "licensePlate": "XZY81"
+    },
+    {
+      "id": 6,
+      "day": "Lunes",
+      "date": "2021-03-29T20:27:20.803Z",
+      "responsable": "Carlos",
+      "idResponsable": "1090503315",
+      "licensePlate": "XZY887777"
     }
   ]
 }

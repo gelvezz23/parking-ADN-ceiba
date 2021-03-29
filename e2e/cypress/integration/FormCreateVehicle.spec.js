@@ -1,7 +1,14 @@
+const { before } = require('mocha');
+
 describe('test form', () => {
+  before(() => {
+    cy.exec('npm run start');
+  });
+
   beforeEach(() => {
     cy.fixture('Vehicles.json').as('VehicleData');
   });
+
   it('render of home', () => {
     cy.visit('/');
   });
