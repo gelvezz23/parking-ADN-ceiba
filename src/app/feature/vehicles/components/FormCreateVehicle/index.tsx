@@ -142,7 +142,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         value={formik.values.type}
         onChange={formik.handleChange}
       >
-        <option>Seleccione</option>
+        <option value="">Seleccione</option>
         <option value="Moto">Moto</option>
         <option value="Carro">Carro</option>
         <option value="Weight">Vehiculo pesado</option>

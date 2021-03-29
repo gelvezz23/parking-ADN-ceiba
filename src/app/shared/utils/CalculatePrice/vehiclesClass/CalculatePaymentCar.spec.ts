@@ -8,9 +8,9 @@ describe('test on patters Strategy CalculatePaymentCar', () => {
     expect(paymentCar.paymentCalculate(oneHour)).toBe(price);
   });
 
-  it('Calculate less of one hours of parking is 700', () => {
+  it('Calculate less of one hours of parking is 500', () => {
     const lessOneHour = '00:00:50:00';
-    const price = 700;
+    const price = 500;
     const paymentCar = new CalculatePaymentCar();
     expect(paymentCar.paymentCalculate(lessOneHour)).toBe(price);
   });

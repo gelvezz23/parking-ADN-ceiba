@@ -4,7 +4,7 @@ import { ProviderMotos } from './../hoc/ProviderMotos';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-const MotosPage: React.FC<RouteComponentProps> = () => {
+const motosPage: React.FC<RouteComponentProps> = () => {
   return (
     <Layout title="Parking" description="Solo Motos">
       <ProviderMotos />
@@ -12,6 +12,6 @@ const MotosPage: React.FC<RouteComponentProps> = () => {
   );
 };
 
-MotosPage.displayName = 'MotosPage';
+motosPage.displayName = 'MotosPage';
 
-export default MotosPage;
+export default motosPage;

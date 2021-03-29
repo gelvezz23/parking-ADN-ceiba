@@ -5,12 +5,12 @@ export interface SpanErrorProps {
   msg: string;
 }
 
-const SpanError: React.FC<SpanErrorProps> = ({ msg }) => {
+const spanError: React.FC<SpanErrorProps> = ({ msg }) => {
   return <SpanErrorAlert>{msg}</SpanErrorAlert>;
 };
 
-SpanError.propTypes = {
+spanError.propTypes = {
   msg: PropTypes.string.isRequired,
 };
 
-export default SpanError;
+export default spanError;

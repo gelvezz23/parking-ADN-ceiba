@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "day": "Lunes",
+  "date": "2021-03-29T03:17:22.363Z",
+  "isActive": true,
+  "slot": "M1",
+  "responsable": "Carlos Gomez",
+  "type": "Moto",
+  "idResponsable": "1090503315",
+  "licensePlate": "XZY88"
+}

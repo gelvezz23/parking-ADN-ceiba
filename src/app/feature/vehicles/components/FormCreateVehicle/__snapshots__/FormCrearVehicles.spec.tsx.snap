@@ -29,7 +29,9 @@ exports[`FormCrearVehicles test should match snapshot 1`] = `
       name="type"
       placeholder="Tipo"
     >
-      <option>
+      <option
+        value=""
+      >
         Seleccione
       </option>
       <option

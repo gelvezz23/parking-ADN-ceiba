@@ -31,13 +31,6 @@
     "test:dev": "cypress open --project ./e2e",
     "lint": "eslint --fix src/**/*.{ts,tsx}"
   },
-  "standard": {
-    "globals": [
-      "describe",
-      "it",
-      "cy"
-    ]
-  },
   "eslintConfig": {
     "extends": "react-app"
   },

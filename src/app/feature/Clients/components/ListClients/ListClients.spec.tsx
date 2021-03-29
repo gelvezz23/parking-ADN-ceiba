@@ -6,9 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('test List Clients', () => {
   let componentWrapper: RenderResult;
-  let componentProps: React.ComponentProps<typeof ListClients> & {
-    clients: Array<Clients>;
-  };
+
   const clients = [
     {
       id: 1,
@@ -27,6 +25,9 @@ describe('test List Clients', () => {
       licensePlate: 'XZY888',
     },
   ];
+  let componentProps: React.ComponentProps<typeof ListClients> & {
+    clients: Array<Clients>;
+  } = { clients };
   beforeEach(() => {
     componentProps = {
       clients,

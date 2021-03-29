@@ -18,7 +18,7 @@ describe('test calculate payment with time', () => {
     //Arrange
     const date = '00:00:58:00';
     const price = 1000;
-    const expectedPrice = 700;
+    const expectedPrice = 500;
     //Act
     const result = calculatePaymentWithTime(date, price);
     //Assert
