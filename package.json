@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/xvfb": "^1.2.4",
     "@types/react-helmet": "^6.0.0",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
