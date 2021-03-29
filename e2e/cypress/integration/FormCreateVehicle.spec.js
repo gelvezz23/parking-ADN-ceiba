@@ -1,14 +1,19 @@
 describe('test form', () => {
+  beforeEach(() => {
+    cy.fixture('Vehicles.json').as('VehicleData');
+  });
   it('render of home', () => {
     cy.visit('/');
   });
 
   it('complete the form', () => {
-    cy.get('[name="slot"]').type('M7');
-    cy.get('[name="responsable"]').type('Carlos Gomez');
-    cy.get('.sc-fznZeY').select('Moto');
-    cy.get('[name="idResponsable"]').type('1090');
-    cy.get('[name="licensePlate"]').type('XZY88');
+    cy.get('@VehicleData').then((VehicleData) => {
+      cy.get('[name="slot"]').type(VehicleData.slot);
+      cy.get('[name="responsable"]').type(VehicleData.responsable);
+      cy.get('.sc-fznZeY').select(VehicleData.type);
+      cy.get('[name="idResponsable"]').type(VehicleData.idResponsable);
+      cy.get('[name="licensePlate"]').type(VehicleData.licensePlate);
+    });
   });
 
   it('Insert vehicle', () => {

@@ -8,9 +8,7 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
-  "standard": {
-    "globals": ["describe", "it", "cy"]
-  },
+
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
