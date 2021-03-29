@@ -4,7 +4,7 @@ import { ProviderWeight } from './../hoc/ProviderWeight';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-const weightPage: React.FC<RouteComponentProps> = () => {
+const weight: React.FC<RouteComponentProps> = () => {
   return (
     <Layout title="Parking" description="Solo Vehiculo Pesado">
       <ProviderWeight />
@@ -12,6 +12,6 @@ const weightPage: React.FC<RouteComponentProps> = () => {
   );
 };
 
-weightPage.displayName = 'WeightPage';
+weight.displayName = 'WeightPage';
 
-export default weightPage;
+export default weight;

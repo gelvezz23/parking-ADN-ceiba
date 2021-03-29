@@ -16,10 +16,6 @@ interface WeightProps {
 }
 
 const weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
-  useEffect(() => {
-    listVehicles();
-  }, [listVehicles]);
-
   return (
     <div className="fadeInDown">
       <h5>Motos</h5>

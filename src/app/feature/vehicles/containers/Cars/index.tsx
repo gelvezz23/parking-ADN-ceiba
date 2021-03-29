@@ -16,10 +16,6 @@ interface CarsProps {
 }
 
 const cars: React.FC<CarsProps> = ({ vehicles, listVehicles }) => {
-  useEffect(() => {
-    listVehicles();
-  }, [listVehicles]);
-
   return (
     <div className="fadeInDown">
       <h5>Carros</h5>

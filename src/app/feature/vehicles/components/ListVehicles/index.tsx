@@ -102,7 +102,7 @@ export const ListVehicles: React.FC<ListVehiclesProps> = ({
           {vehicles.map((vehicle, index) => {
             vehicle.type === 'Weight' ? (weightSlot = weightSlot + 1) : null;
             if (weightSlot === 2) {
-              alert('Se a llenado el cupo de motos');
+              alert('Se a llenado el cupo de vehiculos pesados');
             }
 
             return (
