@@ -33,7 +33,8 @@ pipeline {
     stage('Install') {
       steps{
         echo "------------>Installing<------------"
-        sh 'npm install'
+        sh 'npm install; npm run start '
+        sh 'cd ./server/ ; node server.js'
       }
     }
 
