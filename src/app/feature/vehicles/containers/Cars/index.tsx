@@ -1,9 +1,12 @@
 import * as PropTypes from 'prop-types';
+import {
+  DivContainer,
+  Slot,
+  SlotInfo,
+} from './../../components/ListVehicles/styles';
 import React, { useEffect } from 'react';
-import { DivContainer } from './../../components/ListVehicles/styles';
+
 import { Link } from './../../../../shared/components/Link';
-import { Slot } from './../../components/ListVehicles/styles';
-import { SlotInfo } from './../../components/ListVehicles/styles';
 import { Vehicle } from './../../models/Vehicle';
 import imgCarro from './../../../../../assets/img/car.png';
 

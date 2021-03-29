@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
-import { DivContainer } from './../../components/ListVehicles/styles';
+import {
+  DivContainer,
+  Slot,
+  SlotInfo,
+} from './../../components/ListVehicles/styles';
 import { Link } from './../../../../shared/components/Link';
-import { Slot } from './../../components/ListVehicles/styles';
-import { SlotInfo } from './../../components/ListVehicles/styles';
 import { Vehicle } from './../../models/Vehicle';
 import imgMoto from './../../../../../assets/img/moto.png';
 import { useEffect } from 'react';
@@ -14,7 +15,7 @@ interface MotosProps {
   listVehicles: () => void;
 }
 
-const Motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
+const motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
   useEffect(() => {
     listVehicles();
   }, [listVehicles]);
@@ -53,9 +54,9 @@ const Motos: React.FC<MotosProps> = ({ vehicles, listVehicles }) => {
   );
 };
 
-Motos.propTypes = {
+motos.propTypes = {
   vehicles: PropTypes.array.isRequired,
   listVehicles: PropTypes.func.isRequired,
 };
 
-export default Motos;
+export default motos;

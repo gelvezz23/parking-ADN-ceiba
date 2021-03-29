@@ -45,6 +45,7 @@ describe('test List Clients', () => {
   it('should render 3 td', () => {
     const elem = componentWrapper.container;
     const tr = elem.querySelectorAll('tr');
-    expect(tr.length).toBe(3);
+    const expected = 3;
+    expect(tr.length).toBe(expected);
   });
 });

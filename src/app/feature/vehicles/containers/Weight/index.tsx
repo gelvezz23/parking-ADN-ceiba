@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
-import { DivContainer } from './../../components/ListVehicles/styles';
+import {
+  DivContainer,
+  Slot,
+  SlotInfo,
+} from './../../components/ListVehicles/styles';
 import { Link } from './../../../../shared/components/Link';
-import { Slot } from './../../components/ListVehicles/styles';
-import { SlotInfo } from './../../components/ListVehicles/styles';
 import { Vehicle } from './../../models/Vehicle';
 import imgWeight from './../../../../../assets/img/weight.png';
 import { useEffect } from 'react';
@@ -14,7 +15,7 @@ interface WeightProps {
   listVehicles: () => void;
 }
 
-const Weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
+const weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
   useEffect(() => {
     listVehicles();
   }, [listVehicles]);
@@ -53,9 +54,9 @@ const Weight: React.FC<WeightProps> = ({ vehicles, listVehicles }) => {
   );
 };
 
-Weight.propTypes = {
+weight.propTypes = {
   vehicles: PropTypes.array.isRequired,
   listVehicles: PropTypes.func.isRequired,
 };
 
-export default Weight;
+export default weight;

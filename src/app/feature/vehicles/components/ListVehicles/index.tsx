@@ -1,8 +1,8 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { Slot, SlotInfo } from './styles';
+import { DivContainer, Slot, SlotInfo } from './styles';
 import { BtnRemoveVehicle } from './../RemoveVehicle';
-import { DivContainer } from './styles';
+
 import { Vehicle } from '../../models/Vehicle';
 import imgCarro from './../../../../../assets/img/car.png';
 import imgMoto from './../../../../../assets/img/moto.png';
