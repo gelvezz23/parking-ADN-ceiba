@@ -14,6 +14,7 @@ import { Input } from '../../../../shared/components/Input';
 import { Select } from '../../../../shared/components/Select';
 
 import SpanErrorAlert from './../../../../shared/components/SpanError';
+import { ValidationFormCar } from './../../../../shared/utils/validationForm/classValidation/validationFormCar';
 import { ValidationFormMoto } from './../../../../shared/utils/validationForm/classValidation/validationFormMoto';
 
 import { Vehicle } from '../../models/Vehicle';
@@ -73,6 +74,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   const calculateStockWeight = new CalculatestockWeight();
 
   const validationFormMoto = new ValidationFormMoto();
+  const validationFormCar = new ValidationFormCar();
 
   const permitionInsertStockMoto = calculateStockMoto.stockCalculate(vehicle);
   const permitionInsertStockCar = calculateStockCar.stockCalculate(vehicle);
@@ -122,14 +124,16 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         break;
 
       case 'Carro':
-        if (!permitionInsertStockCar) {
-          setError('El lugar de carros se encuentra lleno');
-        } else if (!vehicleIsRepeat) {
-          onSubmit(dataValuesVehicle);
-          addClients(dataValuesClients);
-          setError('');
-          resetForm();
-        }
+        validationFormCar.validation(
+          onSubmit,
+          addClients,
+          dataValuesVehicle,
+          dataValuesClients,
+          permitionInsertStockCar,
+          setError,
+          vehicleIsRepeat,
+          resetForm
+        );
         break;
 
       case 'Weight':
