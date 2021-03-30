@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormCrearVehicles test should match snapshot 1`] = `
+exports[`test FormCrearVehicles  should match snapshot 1`] = `
 <div>
   <form>
     <h2>

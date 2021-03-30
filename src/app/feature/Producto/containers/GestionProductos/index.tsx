@@ -1,11 +1,10 @@
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
 import { DivContainer, DivRow } from './styles';
+import React, { useEffect } from 'react';
 import { FormCrearProducto } from '../../components/FormCrearProducto';
 import { ListaProductos } from '../../components/ListarProductos';
 import { PaginadorProductos } from '../../components/PaginadorProductos';
 import { Producto } from '../../models/Producto';
-import { useEffect } from 'react';
 
 interface GestionProductosProps {
   productos: Array<Producto>;

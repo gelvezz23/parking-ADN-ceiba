@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { ErrorInfo } from 'react';
+import React, { ErrorInfo } from 'react';
 
 export class GlobalErrorBoundary extends React.Component<any, any> {
   constructor(props: any) {

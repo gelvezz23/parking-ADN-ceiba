@@ -7,6 +7,49 @@ import { Days } from './../../../../shared/components/Days';
 
 import { FormCreateVehicle } from './index';
 import { setTextEvent } from './../../../../shared/utils/test';
+describe('test FormCrearVehicles ', () => {
+  let componentWrapper: RenderResult;
+  let componentProps: React.ComponentProps<typeof FormCreateVehicle> & {
+    onSubmit: SinonStub;
+  };
+
+  const expectSpanLen = 4;
+
+  beforeEach(() => {
+    componentProps = {
+      formTitle: 'Form test',
+      onSubmit: stub(),
+      addClients: stub(),
+      vehicle: [],
+    };
+    componentWrapper = render(<FormCreateVehicle {...componentProps} />);
+  });
+
+  it('should match snapshot', () => {
+    expect(componentWrapper.container).toMatchSnapshot();
+  });
+
+  it('should fail on submit four fields missing', async () => {
+    const elem = componentWrapper.container;
+    const responsable = elem.querySelector('input[name="responsable"]');
+    const submitButton = elem.querySelector('button[type="submit"]');
+
+    await wait(() => {
+      responsable &&
+        fireEvent.change(responsable, setTextEvent('responsable', 'Lorem'));
+    });
+
+    await wait(() => {
+      submitButton && fireEvent.click(submitButton);
+    });
+    const spans = elem.querySelectorAll('span');
+    expect(spans.length).toBe(expectSpanLen);
+    expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
+    expect(spans[1].textContent).toBe(
+      'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
+    );
+  });
+});
 
 describe('FormCrearVehicles test', () => {
   let componentWrapper: RenderResult;
@@ -26,10 +69,6 @@ describe('FormCrearVehicles test', () => {
       vehicle: [],
     };
     componentWrapper = render(<FormCreateVehicle {...componentProps} />);
-  });
-
-  it('should match snapshot', () => {
-    expect(componentWrapper.container).toMatchSnapshot();
   });
 
   it('should fail on submit all fields missing', async () => {
@@ -55,27 +94,6 @@ describe('FormCrearVehicles test', () => {
 
     expect(spans[fourPosition].textContent).toBe(
       'Debe ir placa de el vehiculo a registrar'
-    );
-  });
-
-  it('should fail on submit four fields missing', async () => {
-    const elem = componentWrapper.container;
-    const responsable = elem.querySelector('input[name="responsable"]');
-    const submitButton = elem.querySelector('button[type="submit"]');
-
-    await wait(() => {
-      responsable &&
-        fireEvent.change(responsable, setTextEvent('responsable', 'Lorem'));
-    });
-
-    await wait(() => {
-      submitButton && fireEvent.click(submitButton);
-    });
-    const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(expectSpanLen);
-    expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
-    expect(spans[1].textContent).toBe(
-      'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
     );
   });
 

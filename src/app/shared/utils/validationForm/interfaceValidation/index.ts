@@ -9,7 +9,6 @@ export interface insertForm {
     addClients: (payload: Clients) => void,
     permitionInsertStockMoto: boolean,
     setError: () => void,
-    vehicleIsRepeat: boolean,
-    resetForm: () => void
+    vehicleIsRepeat: boolean
   ) => void;
 }

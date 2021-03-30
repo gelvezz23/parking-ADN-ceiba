@@ -118,8 +118,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
           dataValuesClients,
           permitionInsertStockMoto,
           setError,
-          vehicleIsRepeat,
-          resetForm
+          vehicleIsRepeat
         );
 
         break;
@@ -132,9 +131,9 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
           dataValuesClients,
           permitionInsertStockCar,
           setError,
-          vehicleIsRepeat,
-          resetForm
+          vehicleIsRepeat
         );
+
         break;
 
       case 'Weight':
@@ -143,12 +142,20 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
           addClients,
           dataValuesVehicle,
           dataValuesClients,
-          permitionInsertStockCar,
+          permitionInsertStockWeight,
           setError,
-          vehicleIsRepeat,
-          resetForm
+          vehicleIsRepeat
         );
+
         break;
+    }
+    if (error === '') {
+      resetForm();
+    }
+    if (error !== '') {
+      setTimeout(() => {
+        setError('');
+      }, 3000);
     }
 
     if (vehicleIsRepeat) {

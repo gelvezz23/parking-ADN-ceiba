@@ -1,10 +1,9 @@
 import * as PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import { Clients } from './../../models/Clients';
 import { DivContainer } from 'app/shared/components/Layout/styles';
 
 import ListClients from './../../components/ListClients';
-import React from 'react';
-import { useEffect } from 'react';
 
 interface ManagementClientsProps {
   clients: Array<Clients>;

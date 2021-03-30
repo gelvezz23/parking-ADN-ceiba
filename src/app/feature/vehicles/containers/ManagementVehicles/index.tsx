@@ -1,15 +1,15 @@
 import * as PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+
 import { Body } from 'app/shared/components/Body';
 import { Clients } from './../../../Clients/models/Clients';
 import { FormCreateVehicle } from '../../components/FormCreateVehicle';
 
 import { LeftSideblock } from 'app/shared/components/Body/LeftSide/style';
 import { ListVehicles } from './../../components/ListVehicles';
-import React from 'react';
 import { RightSide } from 'app/shared/components/Body/RightSide';
 
 import { Vehicle } from './../../models/Vehicle';
-import { useEffect } from 'react';
 
 interface ManagementVehicleProps {
   vehicles: Array<Vehicle>;

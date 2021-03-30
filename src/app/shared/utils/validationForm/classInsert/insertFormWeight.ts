@@ -8,8 +8,7 @@ export class InsertFormWeight implements insertForm {
     dataValuesClients: object,
     permitionInsertStockWeight: boolean,
     setError: any,
-    vehicleIsRepeat: boolean,
-    resetForm: any
+    vehicleIsRepeat: boolean
   ) {
     if (!permitionInsertStockWeight) {
       setError('El lugar de vehiculos pesados se encuentra lleno');
@@ -17,7 +16,6 @@ export class InsertFormWeight implements insertForm {
       onSubmit(dataValuesVehicle);
       addClients(dataValuesClients);
       setError('');
-      resetForm();
     }
   }
 }

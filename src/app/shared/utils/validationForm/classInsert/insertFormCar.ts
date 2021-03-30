@@ -8,8 +8,7 @@ export class InsertFormCar implements insertForm {
     dataValuesClients: object,
     permitionInsertStockCar: boolean,
     setError: any,
-    vehicleIsRepeat: boolean,
-    resetForm: any
+    vehicleIsRepeat: boolean
   ) {
     if (!permitionInsertStockCar) {
       setError('El lugar de carros se encuentra lleno');
@@ -17,7 +16,6 @@ export class InsertFormCar implements insertForm {
       onSubmit(dataValuesVehicle);
       addClients(dataValuesClients);
       setError('');
-      resetForm();
     }
   }
 }
