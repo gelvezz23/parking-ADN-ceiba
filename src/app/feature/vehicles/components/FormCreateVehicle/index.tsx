@@ -14,6 +14,8 @@ import { Input } from '../../../../shared/components/Input';
 import { Select } from '../../../../shared/components/Select';
 
 import SpanErrorAlert from './../../../../shared/components/SpanError';
+import { ValidationFormMoto } from './../../../../shared/utils/validationForm/classValidation/validationFormMoto';
+
 import { Vehicle } from '../../models/Vehicle';
 import { getSundayOnWeek } from './../../../../shared/utils/getDaysOnWeek';
 import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
@@ -27,8 +29,8 @@ interface FormValues {
 }
 
 interface FormCreateVehicleProp {
-  onSubmit: (payload: Vehicle) => any;
-  addClients: (payload: Clients) => any;
+  onSubmit: (payload: Vehicle) => void;
+  addClients: (payload: Clients) => void;
   disabled?: boolean;
   formTitle: string;
   vehicle: Array<Vehicle>;
@@ -70,6 +72,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   const calculateStockCar = new CalculatestockCar();
   const calculateStockWeight = new CalculatestockWeight();
 
+  const validationFormMoto = new ValidationFormMoto();
+
   const permitionInsertStockMoto = calculateStockMoto.stockCalculate(vehicle);
   const permitionInsertStockCar = calculateStockCar.stockCalculate(vehicle);
   const permitionInsertStockWeight = calculateStockWeight.stockCalculate(
@@ -82,7 +86,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    const dataValues = {
+    const dataValuesVehicle = {
       id: 0,
       day: daysOnWeek,
       date: new Date().toISOString(),
@@ -93,21 +97,22 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       idResponsable: values.idResponsable,
       licensePlate: values.licensePlate,
     };
+    const dataValuesClients = {
+      id: 0,
+      day: daysOnWeek,
+      date: new Date().toISOString(),
+      responsable: values.responsable,
+      idResponsable: values.idResponsable,
+      licensePlate: values.licensePlate,
+    };
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
     switch (values.type) {
       case 'Moto':
         if (!permitionInsertStockMoto) {
           setError('El lugar de motos se encuentra lleno');
         } else if (!vehicleIsRepeat) {
-          onSubmit(dataValues);
-          addClients({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            responsable: values.responsable,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+          onSubmit(dataValuesVehicle);
+          addClients(dataValuesClients);
           setError('');
           resetForm();
         }
@@ -117,15 +122,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         if (!permitionInsertStockCar) {
           setError('El lugar de carros se encuentra lleno');
         } else if (!vehicleIsRepeat) {
-          onSubmit(dataValues);
-          addClients({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            responsable: values.responsable,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+          onSubmit(dataValuesVehicle);
+          addClients(dataValuesClients);
           setError('');
           resetForm();
         }
@@ -135,15 +133,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         if (!permitionInsertStockWeight) {
           setError('El lugar de vehiculos pesados se encuentra lleno');
         } else if (!vehicleIsRepeat) {
-          onSubmit(dataValues);
-          addClients({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            responsable: values.responsable,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+          onSubmit(dataValuesVehicle);
+          addClients(dataValuesClients);
           setError('');
           resetForm();
         }
