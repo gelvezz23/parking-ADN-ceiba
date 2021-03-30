@@ -1,10 +1,16 @@
-export const CalculateHours = (secs: any) => {
+export const CalculateHours = (secs: string) => {
+  const dayInSeconds = 86400;
+  const dayInHours = 3600;
+  const hoursInDay = 24;
+  const minutesInHour = 60;
+  const compareNumber = 10;
+
   const sec_num = parseInt(secs, 10);
-  const days = Math.floor(sec_num / 86400);
-  const hours = Math.floor(sec_num / 3600) % 24;
-  const minutes = Math.floor(sec_num / 60) % 60;
-  const seconds = sec_num % 60;
+  const days = Math.floor(sec_num / dayInSeconds);
+  const hours = Math.floor(sec_num / dayInHours) % hoursInDay;
+  const minutes = Math.floor(sec_num / minutesInHour) % minutesInHour;
+  const seconds = sec_num % minutesInHour;
   return [days, hours, minutes, seconds]
-    .map((v) => (v < 10 ? '0' + v : v))
+    .map((v) => (v < compareNumber ? '0' + v : v))
     .join(':');
 };

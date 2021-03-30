@@ -66,7 +66,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   },
 }) => {
   const [error, setError] = React.useState('');
-  const sundayPosition = 6;
+
   const calculateStockMoto = new CalculatestockMoto();
   const calculateStockCar = new CalculatestockCar();
   const calculateStockWeight = new CalculatestockWeight();
@@ -76,7 +76,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   const permitionInsertStockWeight = calculateStockWeight.stockCalculate(
     vehicle
   );
-
+  const sundayPosition = 6;
   const daysOnWeek = getSundayOnWeek(sundayPosition);
 
   const handleSubmit = (

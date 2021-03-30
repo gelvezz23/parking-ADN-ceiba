@@ -24,7 +24,8 @@ const Modal: React.FC<ModalProps> = ({ vehicleModal, onClose, onRemove }) => {
   const calculatePaymentCar = new CalculatePaymentCar();
   const calculatePaymentWeight = new CalculatePaymentWeight();
   const comparation = checkOutTime.getTime() - checkInTime.getTime();
-  const checkOutTimeSeconds = comparation / 1000;
+  const miliSeconds = 1000;
+  const checkOutTimeSeconds = comparation / miliSeconds;
 
   return (
     <div className="modal animate__bounceIn" id="modal">
