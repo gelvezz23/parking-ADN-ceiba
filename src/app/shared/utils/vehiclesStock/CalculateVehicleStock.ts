@@ -6,7 +6,7 @@ export const stockVehicleCounter = (vehicles: Array<Vehicle>, type: string) => {
   const maxStockWeight = 2;
 
   vehicles.forEach((vehicle) => {
-    vehicle.type === type ? (stock = stock + 1) : 0;
+    if (vehicle.type === type) stock = stock + 1;
   });
 
   if (type === 'Weight') {
