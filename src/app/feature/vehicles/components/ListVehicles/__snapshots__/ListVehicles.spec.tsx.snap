@@ -100,8 +100,7 @@ exports[`test List Clients should match snapshot 1`] = `
     class="fadeInDown"
   >
     <h5>
-      Vehiculos Pesados : 
-      0
+      Vehiculos Pesados 
     </h5>
     <div
       class="sc-AxiKw bReNwz"

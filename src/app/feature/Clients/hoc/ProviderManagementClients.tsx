@@ -1,7 +1,6 @@
 import {
   addNewClientsRepository,
   listClientsAsync,
-  removeClientsRepository,
 } from './../../../core/redux/acciones/clients/ClientsActions';
 import { EstadoGeneral } from './../../../core/redux/modelo/EstadoGeneral';
 import ManagementClients from './../containers/ManagementClients';
@@ -15,7 +14,6 @@ const mapStateToProps = (state: EstadoGeneral) => {
 const mapDispatchToProps = {
   listClients: listClientsAsync,
   addNewClients: addNewClientsRepository,
-  removeClients: removeClientsRepository,
 };
 
 export const ProviderManagementClients = connect(

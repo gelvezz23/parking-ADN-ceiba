@@ -19,23 +19,14 @@ export const ListVehicles: React.FC<ListVehiclesProps> = ({
   limitSlots,
   onClickMarkOut,
 }) => {
-  let motosSlot = 0;
-  let carSlot = 0;
-  let weightSlot = 0;
-
   return (
     <>
       <div className="fadeInDown">
         <h5>Motos</h5>
         <DivContainer>
           {vehicles.map((vehicle, index) => {
-            vehicle.type === 'Moto' ? (motosSlot = motosSlot + 1) : null;
-            if (motosSlot === 10) {
-              alert('Se a llenado el cupo de motos');
-            }
             return (
-              vehicle.type === 'Moto' &&
-              motosSlot < 11 && (
+              vehicle.type === 'Moto' && (
                 <div key={index} className="animate__heartBeat">
                   <Slot>
                     <SlotInfo>
@@ -64,14 +55,8 @@ export const ListVehicles: React.FC<ListVehiclesProps> = ({
         <h5>Carros </h5>
         <DivContainer>
           {vehicles.map((vehicle, index) => {
-            vehicle.type === 'Carro' ? (carSlot = carSlot + 1) : null;
-            if (carSlot > 10) {
-              alert('Se a llenado el cupo de carros');
-            }
-
             return (
-              vehicle.type === 'Carro' &&
-              carSlot < 11 && (
+              vehicle.type === 'Carro' && (
                 <div key={index} className="animate__heartBeat">
                   <Slot>
                     <SlotInfo>
@@ -97,17 +82,11 @@ export const ListVehicles: React.FC<ListVehiclesProps> = ({
       </div>
 
       <div className="fadeInDown">
-        <h5>Vehiculos Pesados : {weightSlot}</h5>
+        <h5>Vehiculos Pesados </h5>
         <DivContainer>
           {vehicles.map((vehicle, index) => {
-            vehicle.type === 'Weight' ? (weightSlot = weightSlot + 1) : null;
-            if (weightSlot === 2) {
-              alert('Se a llenado el cupo de vehiculos pesados');
-            }
-
             return (
-              vehicle.type === 'Weight' &&
-              weightSlot < 3 && (
+              vehicle.type === 'Weight' && (
                 <div key={index} className="animate__heartBeat">
                   <Slot>
                     <SlotInfo>

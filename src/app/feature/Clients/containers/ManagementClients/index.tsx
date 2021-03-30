@@ -9,15 +9,11 @@ import { useEffect } from 'react';
 interface ManagementClientsProps {
   clients: Array<Clients>;
   listClients: () => void;
-  addNewClients: (clients: Clients) => void;
-  removeClients: (clients: Clients) => void;
 }
 
 const ManagementClients: React.FC<ManagementClientsProps> = ({
   clients,
   listClients,
-  addNewClients,
-  removeClients,
 }) => {
   useEffect(() => {
     listClients();
@@ -33,8 +29,6 @@ const ManagementClients: React.FC<ManagementClientsProps> = ({
 ManagementClients.propTypes = {
   clients: PropTypes.array.isRequired,
   listClients: PropTypes.func.isRequired,
-  addNewClients: PropTypes.func.isRequired,
-  removeClients: PropTypes.func.isRequired,
 };
 
 export default ManagementClients;

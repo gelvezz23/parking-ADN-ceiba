@@ -3,7 +3,12 @@ import * as React from 'react';
 import * as Yup from 'yup';
 
 import { Button } from '../../../../shared/components/Button';
+import { CalculatestockCar } from './../../../../shared/utils/vehiclesStock/classStock/calculateStockCar';
+import { CalculatestockMoto } from './../../../../shared/utils/vehiclesStock/classStock/calculateStockMoto';
+import { CalculatestockWeight } from './../../../../shared/utils/vehiclesStock/classStock/calculateStockWeight';
+
 import { Clients } from './../../../Clients/models/Clients';
+
 import { Days } from './../../../../shared/components/Days';
 
 import { FormikHelpers } from 'formik/dist/types';
@@ -60,8 +65,18 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     licensePlate: '',
   },
 }) => {
-  const [error, setError] = React.useState(false);
+  const [error, setError] = React.useState('');
   const sundayPosition = 6;
+  const calculateStockMoto = new CalculatestockMoto();
+  const calculateStockCar = new CalculatestockCar();
+  const calculateStockWeight = new CalculatestockWeight();
+
+  const permitionInsertStockMoto = calculateStockMoto.stockCalculate(vehicle);
+  const permitionInsertStockCar = calculateStockCar.stockCalculate(vehicle);
+  const permitionInsertStockWeight = calculateStockWeight.stockCalculate(
+    vehicle
+  );
+
   const daysOnWeek =
     new Date().getDay() === 0 || new Date().getDay() === -1
       ? Days[sundayPosition]
@@ -73,29 +88,93 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
 
     if (vehicleIsRepeat) {
-      setError(true);
-    } else {
-      onSubmit({
-        id: 0,
-        day: daysOnWeek,
-        date: new Date().toISOString(),
-        isActive: true,
-        slot: values.slot,
-        responsable: values.responsable,
-        type: values.type,
-        idResponsable: values.idResponsable,
-        licensePlate: values.licensePlate,
-      });
-      addClients({
-        id: 0,
-        day: daysOnWeek,
-        date: new Date().toISOString(),
-        responsable: values.responsable,
-        idResponsable: values.idResponsable,
-        licensePlate: values.licensePlate,
-      });
-      setError(false);
-      resetForm();
+      setError('La placa de el vehiculo ya se encuentra registrada');
+    }
+    if (values.type === 'Moto') {
+      if (permitionInsertStockMoto === false) {
+        setError('El lugar de motos se encuentra lleno');
+      }
+      if (permitionInsertStockMoto === true && vehicleIsRepeat === false) {
+        onSubmit({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          isActive: true,
+          slot: values.slot,
+          responsable: values.responsable,
+          type: values.type,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        addClients({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          responsable: values.responsable,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        setError('');
+        resetForm();
+      }
+    }
+
+    if (values.type === 'Carro') {
+      if (permitionInsertStockCar === false) {
+        setError('El lugar de carros se encuentra lleno');
+      }
+      if (permitionInsertStockCar === true && vehicleIsRepeat === false) {
+        onSubmit({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          isActive: true,
+          slot: values.slot,
+          responsable: values.responsable,
+          type: values.type,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        addClients({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          responsable: values.responsable,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        setError('');
+        resetForm();
+      }
+    }
+
+    if (values.type === 'Weight') {
+      if (permitionInsertStockWeight === false) {
+        setError('El lugar de vehiculos pesados se encuentra lleno');
+      }
+      if (permitionInsertStockWeight === true && vehicleIsRepeat === false) {
+        onSubmit({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          isActive: true,
+          slot: values.slot,
+          responsable: values.responsable,
+          type: values.type,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        addClients({
+          id: 0,
+          day: daysOnWeek,
+          date: new Date().toISOString(),
+          responsable: values.responsable,
+          idResponsable: values.idResponsable,
+          licensePlate: values.licensePlate,
+        });
+        setError('');
+        resetForm();
+      }
     }
   };
   const formik = useFormik({
@@ -172,11 +251,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       {formik.touched.licensePlate && formik.errors.licensePlate && (
         <SpanErrorAlert msg={formik.errors.licensePlate} />
       )}
-      {error && (
-        <SpanErrorAlert
-          msg={'La placa de el vehiculo ya se encuentra registrada'}
-        />
-      )}
+      {error && <SpanErrorAlert msg={error} />}
       <Button type="submit">Registrar</Button>
     </form>
   );

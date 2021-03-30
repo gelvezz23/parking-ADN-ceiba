@@ -43,11 +43,3 @@ export function addNewClientsRepository(clients: Clients) {
     });
   };
 }
-
-export function removeClientsRepository(clients: Clients) {
-  return function (dispacth: any) {
-    ClientsRepository.removeClients(clients).then((response: any) => {
-      dispacth(removeClients(clients));
-    });
-  };
-}
