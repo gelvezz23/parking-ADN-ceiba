@@ -13,6 +13,10 @@ describe('FormCrearVehicles test', () => {
   let componentProps: React.ComponentProps<typeof FormCreateVehicle> & {
     onSubmit: SinonStub;
   };
+  const twoPosition = 2;
+  const treePosition = 3;
+  const fourPosition = 4;
+  const expectSpanLen = 4;
 
   beforeEach(() => {
     componentProps = {
@@ -36,16 +40,20 @@ describe('FormCrearVehicles test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(5);
+    const spansLen = 5;
+    expect(spans.length).toBe(spansLen);
     expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
     expect(spans[1].textContent).toBe(
       'Debe ir el nombre de el dueño de el vehiculo'
     );
-    expect(spans[2].textContent).toBe(
+    expect(spans[twoPosition].textContent).toBe(
       'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
     );
-    expect(spans[3].textContent).toBe('Identificacion de el responsable');
-    expect(spans[4].textContent).toBe(
+    expect(spans[treePosition].textContent).toBe(
+      'Identificacion de el responsable'
+    );
+
+    expect(spans[fourPosition].textContent).toBe(
       'Debe ir placa de el vehiculo a registrar'
     );
   });
@@ -64,7 +72,7 @@ describe('FormCrearVehicles test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(4);
+    expect(spans.length).toBe(expectSpanLen);
     expect(spans[0].textContent).toBe('Aqui debe ir la posicion de el carro');
     expect(spans[1].textContent).toBe(
       'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
@@ -89,15 +97,17 @@ describe('FormCrearVehicles test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(4);
+    expect(spans.length).toBe(expectSpanLen);
     expect(spans[0].textContent).toBe(
       'Debe ir el nombre de el dueño de el vehiculo'
     );
     expect(spans[1].textContent).toBe(
       'Que tipo de vehiculo es (moto, carro, vehiculo pesado)'
     );
-    expect(spans[2].textContent).toBe('Identificacion de el responsable');
-    expect(spans[3].textContent).toBe(
+    expect(spans[twoPosition].textContent).toBe(
+      'Identificacion de el responsable'
+    );
+    expect(spans[treePosition].textContent).toBe(
       'Debe ir placa de el vehiculo a registrar'
     );
   });
