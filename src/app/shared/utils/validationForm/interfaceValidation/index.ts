@@ -6,6 +6,10 @@ export interface validationForm {
     dataValuesClients: object,
     dataValuesVehicle: object,
     onSubmit: (payload: Vehicle) => void,
-    addClients: (payload: Clients) => void
+    addClients: (payload: Clients) => void,
+    permitionInsertStockMoto: boolean,
+    setError: () => void,
+    vehicleIsRepeat: boolean,
+    resetForm: () => void
   ) => void;
 }

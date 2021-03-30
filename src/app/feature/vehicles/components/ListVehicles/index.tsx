@@ -25,6 +25,7 @@ export const ListVehicles: React.FC<ListVehiclesProps> = ({
         <h5>Motos</h5>
         <DivContainer>
           {vehicles.map((vehicle, index) => {
+            console.log(vehicle);
             return (
               vehicle.type === 'Moto' && (
                 <div key={index} className="animate__heartBeat">

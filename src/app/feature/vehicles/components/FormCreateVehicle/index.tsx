@@ -108,14 +108,17 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
     switch (values.type) {
       case 'Moto':
-        if (!permitionInsertStockMoto) {
-          setError('El lugar de motos se encuentra lleno');
-        } else if (!vehicleIsRepeat) {
-          onSubmit(dataValuesVehicle);
-          addClients(dataValuesClients);
-          setError('');
-          resetForm();
-        }
+        validationFormMoto.validation(
+          onSubmit,
+          addClients,
+          dataValuesVehicle,
+          dataValuesClients,
+          permitionInsertStockMoto,
+          setError,
+          vehicleIsRepeat,
+          resetForm
+        );
+
         break;
 
       case 'Carro':
