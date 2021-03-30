@@ -4,7 +4,7 @@ import { ClientsRouter } from 'app/feature/Clients/ClientsRouter';
 import { NavigationHeader } from 'app/shared/components/NavigationHeader';
 import { VehiclesRouter } from 'app/feature/vehicles/vehiclesRouter';
 
-export const AppRouter = () => {
+const AppRouter = () => {
   return (
     <BrowserRouter>
       <NavigationHeader />
@@ -15,3 +15,5 @@ export const AppRouter = () => {
     </BrowserRouter>
   );
 };
+
+export default AppRouter;
