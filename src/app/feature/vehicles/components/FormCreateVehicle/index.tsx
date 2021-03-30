@@ -18,7 +18,6 @@ import { Vehicle } from '../../models/Vehicle';
 import { getSundayOnWeek } from './../../../../shared/utils/getDaysOnWeek';
 import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
 import { useFormik } from 'formik';
-import { validation } from './validation';
 interface FormValues {
   slot: string;
   responsable: string;
@@ -83,25 +82,24 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    validation(values);
+    const dataValues = {
+      id: 0,
+      day: daysOnWeek,
+      date: new Date().toISOString(),
+      isActive: true,
+      slot: values.slot,
+      responsable: values.responsable,
+      type: values.type,
+      idResponsable: values.idResponsable,
+      licensePlate: values.licensePlate,
+    };
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
     switch (values.type) {
       case 'Moto':
-        if (permitionInsertStockMoto === false) {
+        if (!permitionInsertStockMoto) {
           setError('El lugar de motos se encuentra lleno');
-        }
-        if (permitionInsertStockMoto === true && vehicleIsRepeat === false) {
-          onSubmit({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            isActive: true,
-            slot: values.slot,
-            responsable: values.responsable,
-            type: values.type,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+        } else if (!vehicleIsRepeat) {
+          onSubmit(dataValues);
           addClients({
             id: 0,
             day: daysOnWeek,
@@ -118,19 +116,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
       case 'Carro':
         if (!permitionInsertStockCar) {
           setError('El lugar de carros se encuentra lleno');
-        }
-        if (permitionInsertStockCar && !vehicleIsRepeat) {
-          onSubmit({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            isActive: true,
-            slot: values.slot,
-            responsable: values.responsable,
-            type: values.type,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+        } else if (!vehicleIsRepeat) {
+          onSubmit(dataValues);
           addClients({
             id: 0,
             day: daysOnWeek,
@@ -145,21 +132,10 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         break;
 
       case 'Weight':
-        if (permitionInsertStockWeight === false) {
+        if (!permitionInsertStockWeight) {
           setError('El lugar de vehiculos pesados se encuentra lleno');
-        }
-        if (permitionInsertStockWeight === true && vehicleIsRepeat === false) {
-          onSubmit({
-            id: 0,
-            day: daysOnWeek,
-            date: new Date().toISOString(),
-            isActive: true,
-            slot: values.slot,
-            responsable: values.responsable,
-            type: values.type,
-            idResponsable: values.idResponsable,
-            licensePlate: values.licensePlate,
-          });
+        } else if (!vehicleIsRepeat) {
+          onSubmit(dataValues);
           addClients({
             id: 0,
             day: daysOnWeek,
