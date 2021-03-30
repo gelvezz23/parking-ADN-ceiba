@@ -1,18 +1,18 @@
-import { validationForm } from './../interfaceValidation';
+import { insertForm } from '../interfaceValidation';
 
-export class ValidationFormCar implements validationForm {
-  validation(
+export class InsertFormWeight implements insertForm {
+  insert(
     onSubmit: any,
     addClients: any,
     dataValuesVehicle: object,
     dataValuesClients: object,
-    permitionInsertStockCar: boolean,
+    permitionInsertStockWeight: boolean,
     setError: any,
     vehicleIsRepeat: boolean,
     resetForm: any
   ) {
-    if (!permitionInsertStockCar) {
-      setError('El lugar de carros se encuentra lleno');
+    if (!permitionInsertStockWeight) {
+      setError('El lugar de vehiculos pesados se encuentra lleno');
     } else if (!vehicleIsRepeat) {
       onSubmit(dataValuesVehicle);
       addClients(dataValuesClients);

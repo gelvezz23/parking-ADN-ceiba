@@ -10,12 +10,12 @@ import { CalculatestockWeight } from './../../../../shared/utils/vehiclesStock/c
 import { Clients } from './../../../Clients/models/Clients';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from '../../../../shared/components/Input';
-
+import { InsertFormCar } from '../../../../shared/utils/validationForm/classInsert/insertFormCar';
+import { InsertFormMoto } from '../../../../shared/utils/validationForm/classInsert/insertFormMoto';
+import { InsertFormWeight } from '../../../../shared/utils/validationForm/classInsert/insertFormWeight';
 import { Select } from '../../../../shared/components/Select';
 
 import SpanErrorAlert from './../../../../shared/components/SpanError';
-import { ValidationFormCar } from './../../../../shared/utils/validationForm/classValidation/validationFormCar';
-import { ValidationFormMoto } from './../../../../shared/utils/validationForm/classValidation/validationFormMoto';
 
 import { Vehicle } from '../../models/Vehicle';
 import { getSundayOnWeek } from './../../../../shared/utils/getDaysOnWeek';
@@ -73,8 +73,9 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   const calculateStockCar = new CalculatestockCar();
   const calculateStockWeight = new CalculatestockWeight();
 
-  const validationFormMoto = new ValidationFormMoto();
-  const validationFormCar = new ValidationFormCar();
+  const insertFormMoto = new InsertFormMoto();
+  const insertFormCar = new InsertFormCar();
+  const insertFormWeight = new InsertFormWeight();
 
   const permitionInsertStockMoto = calculateStockMoto.stockCalculate(vehicle);
   const permitionInsertStockCar = calculateStockCar.stockCalculate(vehicle);
@@ -110,7 +111,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
     switch (values.type) {
       case 'Moto':
-        validationFormMoto.validation(
+        insertFormMoto.insert(
           onSubmit,
           addClients,
           dataValuesVehicle,
@@ -124,7 +125,7 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         break;
 
       case 'Carro':
-        validationFormCar.validation(
+        insertFormCar.insert(
           onSubmit,
           addClients,
           dataValuesVehicle,
@@ -137,14 +138,16 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         break;
 
       case 'Weight':
-        if (!permitionInsertStockWeight) {
-          setError('El lugar de vehiculos pesados se encuentra lleno');
-        } else if (!vehicleIsRepeat) {
-          onSubmit(dataValuesVehicle);
-          addClients(dataValuesClients);
-          setError('');
-          resetForm();
-        }
+        insertFormWeight.insert(
+          onSubmit,
+          addClients,
+          dataValuesVehicle,
+          dataValuesClients,
+          permitionInsertStockCar,
+          setError,
+          vehicleIsRepeat,
+          resetForm
+        );
         break;
     }
 
