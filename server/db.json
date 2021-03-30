@@ -164,6 +164,17 @@
       "type": "Carro",
       "idResponsable": "2132",
       "licensePlate": "XZY886"
+    },
+    {
+      "id": 19,
+      "day": "Martes",
+      "date": "2021-03-30T14:59:53.073Z",
+      "isActive": true,
+      "slot": "M1",
+      "responsable": "Carlos",
+      "type": "Carro",
+      "idResponsable": "1090503315",
+      "licensePlate": "XZY885555"
     }
   ],
   "Clientes": [
@@ -430,6 +441,14 @@
       "responsable": "Carlos",
       "idResponsable": "2132",
       "licensePlate": "XZY886"
+    },
+    {
+      "id": 34,
+      "day": "Martes",
+      "date": "2021-03-30T14:59:53.075Z",
+      "responsable": "Carlos",
+      "idResponsable": "1090503315",
+      "licensePlate": "XZY885555"
     }
   ]
 }

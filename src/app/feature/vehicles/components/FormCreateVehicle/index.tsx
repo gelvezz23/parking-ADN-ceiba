@@ -18,7 +18,7 @@ import { Vehicle } from '../../models/Vehicle';
 import { getSundayOnWeek } from './../../../../shared/utils/getDaysOnWeek';
 import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
 import { useFormik } from 'formik';
-
+import { validation } from './validation';
 interface FormValues {
   slot: string;
   responsable: string;
@@ -83,69 +83,70 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
+    validation(values);
     const vehicleIsRepeat = licensePlateReapet(vehicle, values.licensePlate);
+    switch (values.type) {
+      case 'Moto':
+        if (permitionInsertStockMoto === false) {
+          setError('El lugar de motos se encuentra lleno');
+        }
+        if (permitionInsertStockMoto === true && vehicleIsRepeat === false) {
+          onSubmit({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            isActive: true,
+            slot: values.slot,
+            responsable: values.responsable,
+            type: values.type,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          addClients({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            responsable: values.responsable,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          setError('');
+          resetForm();
+        }
+        break;
+
+      case 'Carro':
+        if (permitionInsertStockCar === false) {
+          setError('El lugar de carros se encuentra lleno');
+        }
+        if (permitionInsertStockCar === true && vehicleIsRepeat === false) {
+          onSubmit({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            isActive: true,
+            slot: values.slot,
+            responsable: values.responsable,
+            type: values.type,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          addClients({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            responsable: values.responsable,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          setError('');
+          resetForm();
+        }
+    }
 
     if (vehicleIsRepeat) {
       setError('La placa de el vehiculo ya se encuentra registrada');
     }
-    if (values.type === 'Moto') {
-      if (permitionInsertStockMoto === false) {
-        setError('El lugar de motos se encuentra lleno');
-      }
-      if (permitionInsertStockMoto === true && vehicleIsRepeat === false) {
-        onSubmit({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          isActive: true,
-          slot: values.slot,
-          responsable: values.responsable,
-          type: values.type,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        addClients({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          responsable: values.responsable,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        setError('');
-        resetForm();
-      }
-    }
-
-    if (values.type === 'Carro') {
-      if (permitionInsertStockCar === false) {
-        setError('El lugar de carros se encuentra lleno');
-      }
-      if (permitionInsertStockCar === true && vehicleIsRepeat === false) {
-        onSubmit({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          isActive: true,
-          slot: values.slot,
-          responsable: values.responsable,
-          type: values.type,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        addClients({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          responsable: values.responsable,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        setError('');
-        resetForm();
-      }
-    }
-
     if (values.type === 'Weight') {
       if (permitionInsertStockWeight === false) {
         setError('El lugar de vehiculos pesados se encuentra lleno');
