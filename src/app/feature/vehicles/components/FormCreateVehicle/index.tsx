@@ -8,14 +8,14 @@ import { CalculatestockMoto } from './../../../../shared/utils/vehiclesStock/cla
 import { CalculatestockWeight } from './../../../../shared/utils/vehiclesStock/classStock/calculateStockWeight';
 
 import { Clients } from './../../../Clients/models/Clients';
-
-import { Days } from './../../../../shared/components/Days';
-
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from '../../../../shared/components/Input';
+
 import { Select } from '../../../../shared/components/Select';
+
 import SpanErrorAlert from './../../../../shared/components/SpanError';
 import { Vehicle } from '../../models/Vehicle';
+import { getSundayOnWeek } from './../../../../shared/utils/getDaysOnWeek';
 import { licensePlateReapet } from '../../../../shared/utils/LicensePlateReapet';
 import { useFormik } from 'formik';
 
@@ -77,10 +77,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
     vehicle
   );
 
-  const daysOnWeek =
-    new Date().getDay() === 0 || new Date().getDay() === -1
-      ? Days[sundayPosition]
-      : Days[new Date().getDay() - 1];
+  const daysOnWeek = getSundayOnWeek(sundayPosition);
+
   const handleSubmit = (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>

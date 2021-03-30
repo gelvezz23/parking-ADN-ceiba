@@ -4,7 +4,7 @@ import { PaginadorProductos } from 'app/feature/Producto/components/PaginadorPro
 
 describe('PaginadorProductos Test', () => {
   let componentWrapper: ShallowWrapper;
-
+  const positionTwo = 2;
   afterEach(() => {
     componentWrapper.unmount();
   });
@@ -40,7 +40,7 @@ describe('PaginadorProductos Test', () => {
     const buttons = componentWrapper.find('button');
     expect(buttons.at(0).text()).toBe('1');
     expect(buttons.at(1).text()).toBe('2');
-    expect(buttons.at(2).exists()).toBeFalsy();
+    expect(buttons.at(positionTwo).exists()).toBeFalsy();
   });
 });
 
