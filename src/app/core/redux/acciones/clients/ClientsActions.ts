@@ -4,8 +4,11 @@ import {
   REMOVE_CLIENTS,
   TypeActionsClients,
 } from './typesActions';
+import { AxiosResponse } from 'axios';
+
 import { Clients } from './../../../../feature/Clients/models/Clients';
 import { ClientsRepository } from './../../../api/clients.repository';
+import { Vehicle } from 'app/feature/vehicles/models/Vehicle';
 
 export function listClients(clients: Array<Clients>): TypeActionsClients {
   return {
@@ -30,16 +33,20 @@ export function removeClients(clients: Clients): TypeActionsClients {
 
 export function listClientsAsync() {
   return function (dispacth: any) {
-    ClientsRepository.getListOfClients().then((response: any) => {
-      dispacth(listClients(response.data));
-    });
+    ClientsRepository.getListOfClients().then(
+      (response: AxiosResponse<Clients[]>) => {
+        dispacth(listClients(response.data));
+      }
+    );
   };
 }
 
 export function addNewClientsRepository(clients: Clients) {
   return function (dispacth: any) {
-    ClientsRepository.addNewClients(clients).then((response: any) => {
-      dispacth(addNewClients(response.data));
-    });
+    ClientsRepository.addNewClients(clients).then(
+      (response: AxiosResponse<Clients>) => {
+        dispacth(addNewClients(response.data));
+      }
+    );
   };
 }

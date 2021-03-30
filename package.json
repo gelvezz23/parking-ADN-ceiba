@@ -29,7 +29,7 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll",
     "test:coverage": "react-scripts test --watchAll=false --coverage --reporters=default --reporters=jest-junit",
-    "test:dev": "cypress run --browser chrome --headless --project ./e2e",
+    "test:dev": "cypress open --project ./e2e",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "test:e2e": "(npx react-scripts start) & echo $! > npx.pid && npx cypress run --browser chrome --headless --project ./e2e && kill cat npx.pid && rm npx.pid"
   },

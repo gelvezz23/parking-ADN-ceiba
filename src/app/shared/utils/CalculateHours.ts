@@ -9,7 +9,7 @@ export const CalculateHours = (secs: number) => {
   const days = Math.floor(sec_num / dayInSeconds);
   const hours = Math.floor(sec_num / dayInHours) % hoursInDay;
   const minutes = Math.floor(sec_num / minutesInHour) % minutesInHour;
-  const seconds = sec_num % minutesInHour;
+  const seconds = Math.trunc(sec_num % minutesInHour);
   return [days, hours, minutes, seconds]
     .map((v) => (v < compareNumber ? '0' + v : v))
     .join(':');

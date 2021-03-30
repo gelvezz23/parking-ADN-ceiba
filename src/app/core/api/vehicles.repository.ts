@@ -1,8 +1,10 @@
+import { Vehicle } from './../../feature/vehicles/models/Vehicle';
 import { axiosIntance } from '../config/AxiosConfig';
 
 export const VehiclesRepository = {
   getListOfVehicles: () => axiosIntance.get('/vehicles'),
-  addNewVehicle: (vehicle: any) => axiosIntance.post('/vehicles', vehicle),
-  removeVehicle: (vehicle: any) =>
-    axiosIntance.delete(`/vehicles/${vehicle.id}`, vehicle),
+  addNewVehicle: (vehicle: Vehicle) =>
+    axiosIntance.post<Vehicle>('/vehicles', vehicle),
+  removeVehicle: (vehicle: Vehicle) =>
+    axiosIntance.delete(`/vehicles/${vehicle.id}`),
 };

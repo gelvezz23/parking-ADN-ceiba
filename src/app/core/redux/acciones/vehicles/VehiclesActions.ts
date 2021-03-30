@@ -6,6 +6,7 @@ import {
   REMOVE_VEHICLE,
   TypeActionsVehicle,
 } from './typesActions';
+import { AxiosResponse } from 'axios';
 
 import { Clients } from 'app/feature/Clients/models/Clients';
 import { ClientsRepository } from 'app/core/api/clients.repository';
@@ -74,16 +75,20 @@ export function addNewVehicleRepository(vehicles: Vehicle) {
 
 export function addNewClientsRepository(clients: Clients) {
   return function (dispacth: any) {
-    ClientsRepository.addNewClients(clients).then((response: any) => {
-      dispacth(addNewClients(response.data));
-    });
+    ClientsRepository.addNewClients(clients).then(
+      (response: AxiosResponse<Clients>) => {
+        dispacth(addNewClients(response.data));
+      }
+    );
   };
 }
 
 export function removeVehicleRepository(vehicles: Vehicle) {
   return function (dispacth: any) {
-    VehiclesRepository.removeVehicle(vehicles).then((response: any) => {
-      dispacth(removeVehicle(vehicles));
-    });
+    VehiclesRepository.removeVehicle(vehicles).then(
+      (response: AxiosResponse<Vehicle>) => {
+        dispacth(removeVehicle(vehicles));
+      }
+    );
   };
 }
