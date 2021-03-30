@@ -9,6 +9,7 @@ describe('FormCrearProducto test', () => {
   let componentProps: React.ComponentProps<typeof FormCrearProducto> & {
     onSubmit: SinonStub;
   };
+  const positionTwo = 2;
 
   beforeEach(() => {
     componentProps = {
@@ -30,10 +31,11 @@ describe('FormCrearProducto test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(3);
+    const expectedSpans = 3;
+    expect(spans.length).toBe(expectedSpans);
     expect(spans[0].textContent).toBe('El campo title es requerido.');
     expect(spans[1].textContent).toBe('El campo slug es requerido.');
-    expect(spans[2].textContent).toBe('El campo body es requerido.');
+    expect(spans[positionTwo].textContent).toBe('El campo body es requerido.');
   });
 
   it('should fail on submit two fields missing', async () => {
@@ -49,7 +51,8 @@ describe('FormCrearProducto test', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(2);
+    const expectedSpans = 2;
+    expect(spans.length).toBe(expectedSpans);
     expect(spans[0].textContent).toBe('El campo slug es requerido.');
     expect(spans[1].textContent).toBe('El campo body es requerido.');
   });
