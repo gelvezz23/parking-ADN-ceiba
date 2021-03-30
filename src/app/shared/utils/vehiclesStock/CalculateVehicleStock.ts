@@ -6,7 +6,7 @@ export const stockVehicleCounter = (vehicles: Array<Vehicle>, type: string) => {
   const maxStockWeight = 2;
 
   vehicles.map((vehicle) => {
-    vehicle.type === type ? (stock = stock + 1) : null;
+    vehicle.type === type ? (stock = stock + 1) : 0;
   });
 
   if (type === 'Weight') {
