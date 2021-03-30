@@ -116,10 +116,10 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         break;
 
       case 'Carro':
-        if (permitionInsertStockCar === false) {
+        if (!permitionInsertStockCar) {
           setError('El lugar de carros se encuentra lleno');
         }
-        if (permitionInsertStockCar === true && vehicleIsRepeat === false) {
+        if (permitionInsertStockCar && !vehicleIsRepeat) {
           onSubmit({
             id: 0,
             day: daysOnWeek,
@@ -142,38 +142,40 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
           setError('');
           resetForm();
         }
+        break;
+
+      case 'Weight':
+        if (permitionInsertStockWeight === false) {
+          setError('El lugar de vehiculos pesados se encuentra lleno');
+        }
+        if (permitionInsertStockWeight === true && vehicleIsRepeat === false) {
+          onSubmit({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            isActive: true,
+            slot: values.slot,
+            responsable: values.responsable,
+            type: values.type,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          addClients({
+            id: 0,
+            day: daysOnWeek,
+            date: new Date().toISOString(),
+            responsable: values.responsable,
+            idResponsable: values.idResponsable,
+            licensePlate: values.licensePlate,
+          });
+          setError('');
+          resetForm();
+        }
+        break;
     }
 
     if (vehicleIsRepeat) {
       setError('La placa de el vehiculo ya se encuentra registrada');
-    }
-    if (values.type === 'Weight') {
-      if (permitionInsertStockWeight === false) {
-        setError('El lugar de vehiculos pesados se encuentra lleno');
-      }
-      if (permitionInsertStockWeight === true && vehicleIsRepeat === false) {
-        onSubmit({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          isActive: true,
-          slot: values.slot,
-          responsable: values.responsable,
-          type: values.type,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        addClients({
-          id: 0,
-          day: daysOnWeek,
-          date: new Date().toISOString(),
-          responsable: values.responsable,
-          idResponsable: values.idResponsable,
-          licensePlate: values.licensePlate,
-        });
-        setError('');
-        resetForm();
-      }
     }
   };
   const formik = useFormik({
