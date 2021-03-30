@@ -1,11 +1,11 @@
-export const CalculateHours = (secs: string) => {
+export const CalculateHours = (secs: number) => {
   const dayInSeconds = 86400;
   const dayInHours = 3600;
   const hoursInDay = 24;
   const minutesInHour = 60;
   const compareNumber = 10;
 
-  const sec_num = parseInt(secs, 10);
+  const sec_num = secs;
   const days = Math.floor(sec_num / dayInSeconds);
   const hours = Math.floor(sec_num / dayInHours) % hoursInDay;
   const minutes = Math.floor(sec_num / minutesInHour) % minutesInHour;
