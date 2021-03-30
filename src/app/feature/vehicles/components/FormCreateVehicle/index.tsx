@@ -86,8 +86,8 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
   const daysOnWeek = getSundayOnWeek(sundayPosition);
 
   const handleSubmit = (
-    values: FormValues,
-    { resetForm }: FormikHelpers<FormValues>
+    values: FormValues
+    //{ resetForm }: FormikHelpers<FormValues>
   ) => {
     const dataValuesVehicle = {
       id: 0,
@@ -148,14 +148,6 @@ export const FormCreateVehicle: React.FC<FormCreateVehicleProp> = ({
         );
 
         break;
-    }
-    if (error === '') {
-      resetForm();
-    }
-    if (error !== '') {
-      setTimeout(() => {
-        setError('');
-      }, 3000);
     }
 
     if (vehicleIsRepeat) {
