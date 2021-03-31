@@ -4,9 +4,10 @@ import {
   LISTAR_PRODUCTOS,
   TiposAccionesProducto,
 } from './ProductosTiposAcciones';
+import { AxiosResponse } from 'axios';
+
 import { Producto } from 'app/feature/Producto/models/Producto';
 import { ProductoRepositorio } from 'app/core/api/productos.repositorio';
-import { AxiosResponse } from 'axios';
 
 export function listarProductos(
   productos: Array<Producto>,
