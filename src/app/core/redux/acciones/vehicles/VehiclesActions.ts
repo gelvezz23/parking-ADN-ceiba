@@ -59,17 +59,21 @@ export function listVehicleAsync() {
 
 export function listClientsAsync() {
   return function (dispacth: any) {
-    ClientsRepository.getListOfClients().then((response: any) => {
-      dispacth(listClients(response.data));
-    });
+    ClientsRepository.getListOfClients().then(
+      (response: AxiosResponse<Clients[]>) => {
+        dispacth(listClients(response.data));
+      }
+    );
   };
 }
 
 export function addNewVehicleRepository(vehicles: Vehicle) {
   return function (dispacth: any) {
-    VehiclesRepository.addNewVehicle(vehicles).then((response: any) => {
-      dispacth(addNewVehicle(response.data));
-    });
+    VehiclesRepository.addNewVehicle(vehicles).then(
+      (response: AxiosResponse<Vehicle>) => {
+        dispacth(addNewVehicle(response.data));
+      }
+    );
   };
 }
 

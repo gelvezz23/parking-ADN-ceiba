@@ -8,7 +8,6 @@ import { AxiosResponse } from 'axios';
 
 import { Clients } from './../../../../feature/Clients/models/Clients';
 import { ClientsRepository } from './../../../api/clients.repository';
-import { Vehicle } from 'app/feature/vehicles/models/Vehicle';
 
 export function listClients(clients: Array<Clients>): TypeActionsClients {
   return {

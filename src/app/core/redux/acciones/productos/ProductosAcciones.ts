@@ -6,6 +6,7 @@ import {
 } from './ProductosTiposAcciones';
 import { Producto } from 'app/feature/Producto/models/Producto';
 import { ProductoRepositorio } from 'app/core/api/productos.repositorio';
+import { AxiosResponse } from 'axios';
 
 export function listarProductos(
   productos: Array<Producto>,
@@ -38,7 +39,7 @@ export function listarProductosAsync(numeroPagina: number) {
   return function (dispacth: any) {
     ProductoRepositorio.consultarPorPagina(
       numeroPagina
-    ).then((respuesta: any) =>
+    ).then((respuesta: AxiosResponse) =>
       dispacth(
         listarProductos(respuesta.data.articles, respuesta.data.articlesCount)
       )
